@@ -1,7 +1,7 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Node.js CI
+name: Deploy on EC2 Apache
 
 on:
   push:
@@ -13,19 +13,13 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js 14.x to Build
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14.x
-    - run: npm install
-    - run: CI=false npm run build
-    - name: ssh deploy on aws ec2
-      uses: easingthemes/ssh-deploy@v2.1.4
+    - name: Checkout the files
+      uses: actions/checkout@v2
+
+    - name: Deploy to Server 1
+      uses: easingthemes/ssh-deploy@main
       env:
         SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
         REMOTE_HOST: ${{ secrets.DEPLOY_HOST }}
         REMOTE_USER: ${{ secrets.DEPLOY_USER }}
-        REMOTE_PORT: ${{ secrets.DEPLOY_PORT }}
-        SOURCE: "build/"
         TARGET: ${{ secrets.DEPLOY_TARGET }}
