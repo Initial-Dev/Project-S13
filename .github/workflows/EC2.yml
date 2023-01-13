@@ -3,25 +3,28 @@ name: Push-to-EC2
 on: push
 
 jobs:
-  deploy:
-    name: Push to EC2 Instance
-    runs-on: ubuntu-latest
+    deploy:
+        name: Push to EC2 Instance
+        runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v1
+        steps:
+            - name: Checkout the code
+              uses: actions/checkout@v1
 
-      - name: Deploy to my EC2 instance
-        uses: easingthemes/ssh-deploy@v2.1.5
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          SOURCE: "./"
-          REMOTE_HOST: ${{ secrets.EC2_HOST }}
-          REMOTE_USER: ${{ secrets.EC2_USER }}
-          TARGET: ${{ secrets.EC2_TARGET }}
+            - name: Deploy to my EC2 instance
+              uses: easingthemes/ssh-deploy@v2.1.5
+              env:
+                  SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+                  SOURCE: './'
+                  REMOTE_HOST: ${{ secrets.EC2_HOST }}
+                  REMOTE_USER: ${{ secrets.EC2_USER }}
+                  TARGET: ${{ secrets.EC2_TARGET }}
 
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: pwd
+            - name: Install dependencies
+              run: npm ci
 
+            - name: Test
+              run: pwd
+
+            - name: Build Project
+              run: npm run build
