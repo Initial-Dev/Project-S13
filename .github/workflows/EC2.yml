@@ -29,4 +29,4 @@ jobs:
 
         steps:
             - name: Build project
-              run: npm run build
+              run: /home/ubuntu/deploy.sh
