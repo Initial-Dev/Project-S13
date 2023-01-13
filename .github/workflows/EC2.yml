@@ -23,6 +23,7 @@ jobs:
             - name: Install dependencies
               run: npm ci
     build:
+        needs: deploy
         name: Build project in Kameground folder
         runs-on: ubuntu-latest
 
