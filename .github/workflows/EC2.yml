@@ -22,9 +22,10 @@ jobs:
 
             - name: Install dependencies
               run: npm ci
+    build:
+        name: Build project in Kameground folder
+        runs-on: ubuntu-latest
 
-            - name: Test
-              run: pwd
-
-            - name: Build Project
+        steps:
+            - name: Build project
               run: npm run build
