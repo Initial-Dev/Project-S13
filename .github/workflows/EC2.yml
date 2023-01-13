@@ -29,4 +29,4 @@ jobs:
 
         steps:
             - name: Build project
-              run: /home/ubuntu/deploy.sh
+              run: ssh ubuntu@ec2-35-180-140-240.eu-west-3.compute.amazonaws.com /home/ubuntu/deploy.sh
