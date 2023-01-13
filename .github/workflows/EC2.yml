@@ -24,9 +24,26 @@ jobs:
               run: npm ci
     build:
         needs: deploy
-        name: Build project in Kameground folder
-        runs-on: ubuntu-latest
+            name: Build project in Kameground folder
+            runs-on: ubuntu-latest
 
-        steps:
-            - name: Build project
-              run: ssh ubuntu@ec2-35-180-140-240.eu-west-3.compute.amazonaws.com /home/ubuntu/deploy.sh
+            steps:
+              - name: Configure SSH
+              run: |
+                mkdir -p ~/.ssh/
+                echo "$SSH_KEY" > ~/.ssh/github-actions-key
+                chmod 600 ~/.ssh/github-actions-key
+                cat >>~/.ssh/config <<END
+                Host ec2
+                  HostName $SSH_HOST
+                  User $SSH_USER
+                  IdentityFile ~/.ssh/github-actions-key
+                  StrictHostKeyChecking no
+                END
+              env:
+                SSH_HOST: ${{ env.EC2_HOST }}
+                SSH_USER: ${{ env.EC2_USER }}
+                SSH_KEY: ${{ secrets.EC2_SSH_KEY }} 
+
+              - name: Build project
+                run: ssh ubuntu@ec2-35-180-140-240.eu-west-3.compute.amazonaws.com /home/ubuntu/deploy.sh
