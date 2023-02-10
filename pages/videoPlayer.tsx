@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
-import Player from '../components/player';
+import VideoPlayer from '../components/VideoPlayer';
 
 const Home: NextPage = () => {
 	return (
@@ -12,7 +11,7 @@ const Home: NextPage = () => {
 			</Head>
 
 			<main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-				<Player />
+				<VideoPlayer />
 			</main>
 		</div>
 	);
