@@ -69,7 +69,13 @@ export const VideoPlayer = () => {
 	return (
 		<div>
 			{isMobile ? (
-				<VideoMobile />
+				<VideoMobile
+					url={undefined}
+					logo={undefined}
+					gametitle={undefined}
+					avatar={undefined}
+					user={undefined}
+				/>
 			) : (
 				<div className="  h-auto max-w-full py-32 lg:pb-40 bg-[#1F2123]">
 					<div className="mx-auto max-w-7xl px-6 lg:px-8 h-full w-full">
