@@ -1,41 +1,29 @@
 {
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
-  },
-  "dependencies": {
-    "@ffmpeg-installer/ffmpeg": "^1.1.0",
-    "@types/fluent-ffmpeg": "^2.1.20",
-    "express": "^4.18.2",
-    "fluent-ffmpeg": "^2.1.2",
-    "hls-server": "^1.5.0",
-    "next": "latest",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "storybook-addon-next": "^1.7.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.20.5",
-    "@storybook/addon-actions": "^6.5.14",
-    "@storybook/addon-essentials": "^6.5.14",
-    "@storybook/addon-interactions": "^6.5.14",
-    "@storybook/addon-links": "^6.5.14",
-    "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/builder-webpack5": "^6.5.14",
-    "@storybook/manager-webpack5": "^6.5.14",
-    "@storybook/react": "^6.5.14",
-    "@storybook/testing-library": "^0.0.13",
-    "@types/node": "18.11.3",
-    "@types/react": "18.0.21",
-    "@types/react-dom": "18.0.6",
-    "autoprefixer": "^10.4.12",
-    "babel-loader": "^8.3.0",
-    "postcss": "^8.4.18",
-    "tailwindcss": "^3.2.1",
-    "typescript": "4.8.4"
-  }
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start"
+	},
+	"dependencies": {
+		"@ffmpeg-installer/ffmpeg": "^1.1.0",
+		"@types/fluent-ffmpeg": "^2.1.20",
+		"express": "^4.18.2",
+		"fluent-ffmpeg": "^2.1.2",
+		"hls-server": "^1.5.0",
+		"next": "latest",
+		"react": "18.2.0",
+		"react-dom": "18.2.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.20.5",
+		"@types/node": "18.11.3",
+		"@types/react": "18.0.21",
+		"@types/react-dom": "18.0.6",
+		"autoprefixer": "^10.4.12",
+		"babel-loader": "^8.3.0",
+		"postcss": "^8.4.18",
+		"tailwindcss": "^3.2.1",
+		"typescript": "4.8.4"
+	}
 }

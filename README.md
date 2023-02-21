@@ -1,27 +1,30 @@
-# Next.js + Tailwind CSS Example (ancien repo)
+# Project-S13 -- Kameground
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+Project-S13 also known as Kameground is a web application for social interaction and videogame clip sharing between users, also featuring recommendation and global ranking algorithms.
 
-## Deploy your own
+Production is available at: https://kameground.com/ .
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+## Getting started
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+First you will need to clone the project's repository using:
 
 ```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
+git clone https://github.com/Initial-Dev/Project-S13.git
+```
+
+Then make sure your global config is configured correctly so that you show up as a valid contributor on Github.
+Once you have the repository cloned you will need to install dependencies and launch the Next.js server as such:
+
+```bash
+pnpm install
 ```
 
 ```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
+pnpm run dev
 ```
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
+Then you will be able to access your local instance of the application at http://localhost:3000 and start your development.
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Features
+
+Here is a list of present and future features:
