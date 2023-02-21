@@ -4,15 +4,15 @@
 
 @font-face {
 	font-family: 'Sk-Modernist-Bold';
-	src: url('../../src/fonts/Sk-Modernist-Bold.otf');
+	src: url('../fonts/Sk-Modernist-Bold.otf');
 }
 
 @font-face {
 	font-family: 'Sk-Modernist-Mono';
-	src: url('../../src/fonts/Sk-Modernist-Mono.otf');
+	src: url('../fonts/Sk-Modernist-Mono.otf');
 }
 
 @font-face {
 	font-family: 'Sk-Modernist-Regular';
-	src: url('../../src/fonts/Sk-Modernist-Regular.otf');
+	src: url('../fonts/Sk-Modernist-Regular.otf');
 }

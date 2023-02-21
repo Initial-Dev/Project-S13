@@ -14,7 +14,7 @@ import {
 	MediaTimeSlider,
 	MediaVolumeSlider,
 } from '@vidstack/react';
-import Avatar from './avatar';
+import AvatarUser from './avatarUser';
 import GameBadge from './gameBadge';
 
 const playerDesktop = ({ url, logo, gametitle, avatar, user }) => {
@@ -119,7 +119,7 @@ const playerDesktop = ({ url, logo, gametitle, avatar, user }) => {
 						<GameBadge logo={logo} gametitle={gametitle} />
 					</div>
 					<div className="absolute top-5 left-5 ">
-						<Avatar avatar={avatar} user={user} />
+						<AvatarUser avatar={avatar} user={user} />
 					</div>
 				</div>
 			</div>
