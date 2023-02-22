@@ -66,11 +66,11 @@ export default function Home() {
 								{hoveredVideo === url ? (
 									<Link href={`/watch/${id}`}>
 										<video
-											className="aspect-[3/2] w-full rounded-2xl object-cover  animate-fade-in"
+											className="aspect-[3/2] w-full rounded-2xl object-cover  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 "
 											autoPlay
 											muted
-											src={url}
 											poster={poster}
+											src={url}
 										/>
 
 										<h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">
@@ -90,11 +90,19 @@ export default function Home() {
 								) : (
 									<>
 										<Link href={`/watch/${id}`}>
-											<img
-												className="aspect-[3/2] w-full rounded-2xl object-cover"
-												src={poster}
-												alt=""
-											/>
+											<div className="relative">
+												<img
+													className="aspect-[3/2] w-full rounded-2xl object-cover"
+													src={poster}
+													alt=""
+												/>
+												<div className="absolute bottom-0 left-0">
+													<span className="inline-flex items-center rounded-md bg-[#FE5821] px-2.5 py-0.5 text-sm font-medium text-white">
+														{game.title}
+													</span>
+												</div>
+											</div>
+
 											<h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">
 												{title}
 											</h3>

@@ -14,7 +14,7 @@ import {
 	MediaTimeSlider,
 	MediaVolumeSlider,
 } from '@vidstack/react';
-import AvatarUser from './avatarUser';
+import AvatarUser from '../PlayerMobile/avatarUser';
 import GameBadge from './gameBadge';
 
 const playerDesktop = ({ url, logo, gametitle, avatar, user }) => {
@@ -66,6 +66,7 @@ const playerDesktop = ({ url, logo, gametitle, avatar, user }) => {
 			preload="auto"
 			autoplay
 			loop
+			muted
 			ref={videoRef}
 			onPlay={() => setIsPlaying(false)}
 			onPause={() => setIsPlaying(true)}

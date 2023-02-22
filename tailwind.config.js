@@ -7,6 +7,11 @@ module.exports = {
 	],
 	theme: {
 		extend: {},
+		fontFamily: {
+			skmodernistbold: ['Sk-Modernist-Bold'],
+			skmodernistmono: ['Sk-Modernist-Mono'],
+			skmodernistregular: ['Sk-Modernist-Regular'],
+		},
 	},
 	plugins: [
 		require('vidstack/tailwind.cjs'),
