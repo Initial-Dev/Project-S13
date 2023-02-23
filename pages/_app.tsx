@@ -1,3 +1,5 @@
+import Layouts from 'components/Layouts';
+import Navbar from 'components/Layouts/Navbar';
 import { ThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
 import '../styles/globals.css';
@@ -9,7 +11,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 			attribute="class"
 			enableSystem={true}
 		>
-			<Component {...pageProps} />
+			<Layouts>
+				<Component {...pageProps} />
+			</Layouts>
 		</ThemeProvider>
 	);
 }
