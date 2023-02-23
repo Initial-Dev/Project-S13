@@ -18,7 +18,7 @@ const Navbar = () => {
 
 	const { pathname } = useRouter();
 	return (
-		<nav className="sticky font-skmodernistregular top-0 right-5 z-10 p-4 max-w-2xl mx-auto my-4 flex flex-row items-center backdrop-blur md:px-0 lg:max-w-3xl">
+		<nav className="sticky font-skmodernistregular top-0 right-5 z-10 p-4 max-w-2xl mx-auto my-4 flex flex-row items-center backdrop-blur md:px-0 lg:max-w-full">
 			{navigation.map(({ href, name }, index) => (
 				<Link key={href} href={href}>
 					<div
@@ -35,7 +35,7 @@ const Navbar = () => {
 				</Link>
 			))}
 			<button
-				className="ml-auto p-2 rounded bg-gray-50 dark:bg-gray-950"
+				className="ml-auto p-2 rounded"
 				aria-label="Toggle Dark mode"
 				onClick={onClickToggleDark}
 			>

@@ -2,11 +2,9 @@ import Navbar from './Navbar';
 
 export default function Layouts({ children }) {
 	return (
-		<section className="flex items-start">
+		<section>
 			<Navbar />
-			<main className="relative w-full bg-white dark:bg-[#111]">
-				{children}
-			</main>
+			<main>{children}</main>
 		</section>
 	);
 }
