@@ -25,73 +25,121 @@
 	},
 	{
 		"id": "00003",
-		"title": "Shiro become Archer",
+		"title": "[BUG] Mon personnage est invisible...",
 		"user": "Tetsuya Kuroko",
-		"url": "../videos/video.m3u8",
+		"url": "../videos/video3.mp4",
 		"poster": "../poster/video3Poster.png",
 		"avatar": "../avatar/kuroko.jpg",
 		"game": {
-			"title": "Fate Stay Night",
+			"title": "Dragon Ball Z Kakarot",
 			"logo": "../gameBadge/video2.png"
 		}
 	},
 	{
-		"id": "00003",
-		"title": "Shiro become Archer",
+		"id": "00004",
+		"title": "Le trio légendaire",
 		"user": "Tetsuya Kuroko",
-		"url": "../videos/video.m3u8",
-		"poster": "../poster/video3Poster.png",
+		"url": "../videos/video4.mp4",
+		"poster": "../poster/video4Poster.png",
 		"avatar": "../avatar/kuroko.jpg",
 		"game": {
-			"title": "Fate Stay Night",
+			"title": "FIFA23",
 			"logo": "../gameBadge/video2.png"
 		}
 	},
 	{
-		"id": "00003",
+		"id": "00005",
 		"title": "Shiro become Archer",
 		"user": "Tetsuya Kuroko",
-		"url": "../videos/video.m3u8",
-		"poster": "../poster/video3Poster.png",
+		"url": "../videos/video5.mp4",
+		"poster": "../poster/video5Poster.png",
 		"avatar": "../avatar/kuroko.jpg",
 		"game": {
-			"title": "Fate Stay Night",
+			"title": "FIFA23",
 			"logo": "../gameBadge/video2.png"
 		}
 	},
 	{
-		"id": "00003",
+		"id": "00006",
 		"title": "Shiro become Archer",
 		"user": "Tetsuya Kuroko",
-		"url": "../videos/video.m3u8",
-		"poster": "../poster/video3Poster.png",
+		"url": "../videos/video6.mp4",
+		"poster": "../poster/video6Poster.png",
 		"avatar": "../avatar/kuroko.jpg",
 		"game": {
-			"title": "Fate Stay Night",
+			"title": "FIFA23",
 			"logo": "../gameBadge/video2.png"
 		}
 	},
 	{
-		"id": "00003",
+		"id": "00007",
 		"title": "Shiro become Archer",
 		"user": "Tetsuya Kuroko",
-		"url": "../videos/video.m3u8",
-		"poster": "../poster/video3Poster.png",
+		"url": "../videos/video7.mp4",
+		"poster": "../poster/video7Poster.png",
 		"avatar": "../avatar/kuroko.jpg",
 		"game": {
-			"title": "Fate Stay Night",
+			"title": "FIFA23",
 			"logo": "../gameBadge/video2.png"
 		}
 	},
 	{
-		"id": "00003",
+		"id": "00008",
 		"title": "Shiro become Archer",
 		"user": "Tetsuya Kuroko",
-		"url": "../videos/video.m3u8",
-		"poster": "../poster/video3Poster.png",
+		"url": "../videos/video8.mp4",
+		"poster": "../poster/video8Poster.png",
 		"avatar": "../avatar/kuroko.jpg",
 		"game": {
-			"title": "Fate Stay Night",
+			"title": "Cyberpunk 2077",
+			"logo": "../gameBadge/video2.png"
+		}
+	},
+	{
+		"id": "00009",
+		"title": "Shiro become Archer",
+		"user": "Tetsuya Kuroko",
+		"url": "../videos/video9.mp4",
+		"poster": "../poster/video9Poster.png",
+		"avatar": "../avatar/kuroko.jpg",
+		"game": {
+			"title": "League of Legends",
+			"logo": "../gameBadge/video2.png"
+		}
+	},
+	{
+		"id": "00010",
+		"title": "Shiro become Archer",
+		"user": "Tetsuya Kuroko",
+		"url": "../videos/video10.mp4",
+		"poster": "../poster/video10Poster.png",
+		"avatar": "../avatar/kuroko.jpg",
+		"game": {
+			"title": "Cyberpunk 2077",
+			"logo": "../gameBadge/video2.png"
+		}
+	},
+	{
+		"id": "00011",
+		"title": "Shiro become Archer",
+		"user": "Tetsuya Kuroko",
+		"url": "../videos/video11.mp4",
+		"poster": "../poster/video11Poster.png",
+		"avatar": "../avatar/kuroko.jpg",
+		"game": {
+			"title": "Cyberpunk 2077",
+			"logo": "../gameBadge/video2.png"
+		}
+	},
+	{
+		"id": "00012",
+		"title": "Shiro become Archer",
+		"user": "Tetsuya Kuroko",
+		"url": "../videos/video12.mp4",
+		"poster": "../poster/video12Poster.png",
+		"avatar": "../avatar/kuroko.jpg",
+		"game": {
+			"title": "League of Legends",
 			"logo": "../gameBadge/video2.png"
 		}
 	}
