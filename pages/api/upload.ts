@@ -23,15 +23,24 @@ const upload = multer({
     }
     callback(null, true)
   },
+  limits: { fileSize: 300 * 1024 * 1024 }, // 300 Mo
 })
 
 const apiRoute = nc<NextApiRequest, NextApiResponse>()
 
-apiRoute.use(upload.single('video'))
-
 apiRoute.post((req: NextApiRequest & Request, res: NextApiResponse & Response) => {
-  // Le fichier est disponible dans req.file
-  res.status(200).json({ success: true, file : req.file?.size, message: 'Fichier envoyé' })
+  upload.single('video')(req, res, (err) => {
+    if (err) {
+      if (err instanceof multer.MulterError) {
+        if (err.code === 'LIMIT_FILE_SIZE') {
+          return res.status(400).json({ message: 'La taille du fichier est trop grande' })
+        }
+      }
+      return res.status(400).json({ message: 'Une erreur s\'est produite lors de l\'upload du fichier' })
+    }
+    // Le fichier est disponible dans req.file
+    res.status(200).json({ message: "Upload Done!", file: req.file })
+  })
 })
 
 export default apiRoute
