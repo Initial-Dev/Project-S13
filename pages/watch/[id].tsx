@@ -70,11 +70,11 @@ export const VideoPlayer = () => {
 		<div>
 			{isMobile ? (
 				<VideoMobile
-					url={undefined}
-					logo={undefined}
-					gametitle={undefined}
-					avatar={undefined}
-					user={undefined}
+					url={video.url}
+					logo={video.game.logo}
+					gametitle={video.game.title}
+					avatar={video.avatar}
+					user={video.user}
 				/>
 			) : (
 				<div className="  h-auto max-w-full py-32 lg:pb-40 bg-[#1F2123]">
