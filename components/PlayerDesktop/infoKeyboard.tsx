@@ -1,7 +1,7 @@
 export default function InfoKeyboard() {
 	return (
 		<div className="pointer-events-none fixed inset-x-0 bottom-0 px-4 pb-4">
-			<div className="pointer-events-auto ml-auto max-w-xl rounded-xl bg-white p-6 ring-1 ring-gray-900/10">
+			<div className="pointer-events-auto ml-auto max-w-xl rounded-xl bg-light p-6 ring-1 ring-gray-900/10">
 				<p className="text-sm leading-6 text-gray-900">
 					description avec les images de touches du clavier
 					<a href="#" className="font-semibold text-indigo-600">

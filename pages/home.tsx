@@ -107,7 +107,7 @@ export default function Home() {
 		<div className="py-24 sm:py-32">
 			<div className="mx-auto max-w-7xl px-6 lg:px-8">
 				<div className="mx-auto max-w-2xl lg:mx-0">
-					<h2 className="text-3xl font-skmodernistbold tracking-tight text-gray-900 sm:text-4xl">
+					<h2 className="text-3xl font-skmodernistbold tracking-tight text-dark dark:text-light sm:text-4xl">
 						Kameground (Video Player)
 					</h2>
 				</div>
@@ -133,7 +133,7 @@ export default function Home() {
 											src={url}
 										/>
 
-										<h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">
+										<h3 className="mt-6 text-lg font-skmodernistbold leading-8 tracking-tight text-dark dark:text-light">
 											{title}
 										</h3>
 										<div className="flex items-center gap-3">
@@ -142,7 +142,7 @@ export default function Home() {
 												src={avatar}
 												alt=""
 											/>
-											<p className="text-base leading-7 text-gray-600">
+											<p className="text-base leading-7 font-skmodernistregular text-gray-600 dark:text-gray-400">
 												{user}
 											</p>
 										</div>
@@ -163,7 +163,7 @@ export default function Home() {
 												</div>
 											</div>
 
-											<h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">
+											<h3 className="mt-6 text-lg font-skmodernistbold leading-8 tracking-tight text-dark dark:text-light ">
 												{title}
 											</h3>
 											<div className="flex items-center gap-3">
@@ -172,7 +172,7 @@ export default function Home() {
 													src={avatar}
 													alt=""
 												/>
-												<p className="text-base leading-7 text-gray-600">
+												<p className="text-base leading-7 font-skmodernistregular  text-gray-600 dark:text-gray-400">
 													{user}
 												</p>
 											</div>

@@ -18,12 +18,12 @@ const Navbar = () => {
 
 	const { pathname } = useRouter();
 	return (
-		<nav className="sticky font-skmodernistregular top-0 right-5 z-10 p-4 max-w-2xl mx-auto my-4 flex flex-row items-center backdrop-blur md:px-0 lg:max-w-full">
+		<nav className="sticky border-b-2 border-gray-100/10 font-skmodernistregular top-0 right-5 z-10 p-4 max-w-2xl mx-auto my-4 flex flex-row items-center backdrop-blur md:px-0 lg:max-w-full">
 			{navigation.map(({ href, name }, index) => (
 				<Link key={href} href={href}>
 					<div
 						className={classNames(
-							'sm:ml-6 md:ml-8 text-gray-900 dark:text-blue-400',
+							'sm:ml-6 md:ml-8 text-dark dark:text-light',
 							{
 								'ml-4': index > 0,
 								'  cursor-not-allowed': pathname === href,

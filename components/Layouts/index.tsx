@@ -2,7 +2,7 @@ import Navbar from './Navbar';
 
 export default function Layouts({ children }) {
 	return (
-		<div className="bg-white dark:bg-dark">
+		<div>
 			<Navbar />
 			<main>{children}</main>
 		</div>
