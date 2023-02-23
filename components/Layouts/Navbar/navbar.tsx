@@ -23,7 +23,7 @@ const Navbar = () => {
 				<Link key={href} href={href}>
 					<div
 						className={classNames(
-							'sm:ml-6 md:ml-8 text-gray-900 dark:text-gray-100',
+							'sm:ml-6 md:ml-8 text-gray-900 dark:text-blue-400',
 							{
 								'ml-4': index > 0,
 								'  cursor-not-allowed': pathname === href,

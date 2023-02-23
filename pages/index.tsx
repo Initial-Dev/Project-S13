@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const Home: NextPage = () => {
 	return (
-		<div className="flex min-h-screen flex-col items-center justify-center py-2">
+		<div className="bg-white dark:bg-dark flex min-h-screen flex-col items-center justify-center py-2">
 			<Head>
 				<title>Kameground</title>
 				<link rel="icon" href="/favicon.ico" />
