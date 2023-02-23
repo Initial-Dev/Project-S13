@@ -1,9 +1,21 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { RiCompassDiscoverLine } from 'react-icons/ri';
 import videos from '../videos.json';
+
 export default function Home() {
 	const [hoveredVideo, setHoveredVideo] = useState(null);
+	const videosList = useMemo(() => {
+		return videos.map(({ id, title, user, url, poster, game, avatar }) => ({
+			id,
+			title,
+			user,
+			url,
+			poster,
+			game,
+			avatar,
+		}));
+	}, [videos]);
 
 	return (
 		<div className="py-12 sm:py-24">
@@ -19,7 +31,7 @@ export default function Home() {
 					role="list"
 					className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
 				>
-					{videos.map(
+					{videosList.map(
 						({ id, title, user, url, poster, game, avatar }) => (
 							<li
 								key={id}
@@ -29,7 +41,7 @@ export default function Home() {
 								{hoveredVideo === url ? (
 									<Link href={`/watch/${id}`}>
 										<video
-											className="aspect-[3/2] w-full rounded-2xl object-cover  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 "
+											className="aspect-[3/2] w-full rounded-2xl object-cover transition ease-in-out delay-300 hover:-translate-y-1 hover:scale-110 "
 											autoPlay
 											muted
 											poster={poster}
