@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
-
+import { RiCompassDiscoverLine } from 'react-icons/ri';
 const data = [
 	{
 		id: '00001',
@@ -104,12 +104,13 @@ export default function Home() {
 	const [hoveredVideo, setHoveredVideo] = useState(null);
 
 	return (
-		<div className="py-24 sm:py-32">
+		<div className="py-12 sm:py-24">
 			<div className="mx-auto max-w-7xl px-6 lg:px-8">
 				<div className="mx-auto max-w-2xl lg:mx-0">
-					<h2 className="text-3xl font-skmodernistbold tracking-tight text-dark dark:text-light sm:text-4xl">
-						Kameground (Video Player)
-					</h2>
+					<div className="flex flex-row items-center gap-4 text-3xl font-skmodernistbold tracking-tight text-dark dark:text-light sm:text-4xl">
+						<RiCompassDiscoverLine />
+						<h2>Discover </h2>
+					</div>
 				</div>
 
 				<ul
