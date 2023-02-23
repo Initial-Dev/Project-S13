@@ -8,12 +8,14 @@ module.exports = {
 		'./app/**/*.{js,ts,jsx,tsx}',
 	],
 	theme: {
-		extend: {},
-		colors: {
-			dark: '#1F2123',
-			light: '#F5F5F5',
-			primary: '#FE5821',
+		extend: {
+			colors: {
+				dark: '#1F2123',
+				light: '#F5F5F5',
+				primary: '#FE5821',
+			},
 		},
+
 		fontFamily: {
 			skmodernistbold: ['Sk-Modernist-Bold'],
 			skmodernistmono: ['Sk-Modernist-Mono'],
