@@ -1,77 +1,92 @@
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+import { RiCompassDiscoverLine } from 'react-icons/ri';
+import videos from '../videos.json';
+export default function Home() {
+	const [hoveredVideo, setHoveredVideo] = useState(null);
 
-const Home: NextPage = () => {
 	return (
-		<div className="flex min-h-screen flex-col items-center justify-center py-2">
-			<Head>
-				<title>Kameground</title>
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
-
-			<main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-				<h1 className="text-6xl font-bold">
-					Welcome to{' '}
-					<a className="text-blue-600" href="https://nextjs.org">
-						Next.js :)
-					</a>
-				</h1>
-
-				<p className="mt-3 text-2xl">
-					By Louis - Get started by editing{' '}
-					<code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-						pages/index.tsx
-					</code>
-				</p>
-
-				<div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-					<a
-						href="/home"
-						className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-					>
-						<h3 className="text-2xl font-bold">Home &rarr;</h3>
-						<p className="mt-4 text-xl">
-							Video list and Video player
-						</p>
-					</a>
-
-					<a
-						href="https://nextjs.org/learn"
-						className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-					>
-						<h3 className="text-2xl font-bold">Learn &rarr;</h3>
-						<p className="mt-4 text-xl">
-							Learn about Next.js in an interactive course with
-							quizzes!
-						</p>
-					</a>
-
-					<a
-						href="https://github.com/vercel/next.js/tree/canary/examples"
-						className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-					>
-						<h3 className="text-2xl font-bold">Examples &rarr;</h3>
-						<p className="mt-4 text-xl">
-							Discover and deploy boilerplate example Next.js
-							projects.
-						</p>
-					</a>
-
-					<a
-						href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-						className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-					>
-						<h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-						<p className="mt-4 text-xl">
-							Instantly deploy your Next.js site to a public URL
-							with Vercel.
-						</p>
-					</a>
+		<div className="py-12 sm:py-24">
+			<div className="mx-auto max-w-7xl px-6 lg:px-8">
+				<div className="mx-auto max-w-2xl lg:mx-0">
+					<div className="flex flex-row items-center gap-4 text-3xl font-skmodernistbold tracking-tight text-dark dark:text-light sm:text-4xl">
+						<RiCompassDiscoverLine />
+						<h2>Discover</h2>
+					</div>
 				</div>
-			</main>
+
+				<ul
+					role="list"
+					className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+				>
+					{videos.map(
+						({ id, title, user, url, poster, game, avatar }) => (
+							<li
+								key={id}
+								onMouseEnter={() => setHoveredVideo(url)}
+								onMouseLeave={() => setHoveredVideo(null)}
+							>
+								{hoveredVideo === url ? (
+									<Link href={`/watch/${id}`}>
+										<video
+											className="aspect-[3/2] w-full rounded-2xl object-cover  transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 "
+											autoPlay
+											muted
+											poster={poster}
+											src={url}
+										/>
+
+										<h3 className="mt-6 text-lg font-skmodernistbold leading-8 tracking-tight text-dark dark:text-light">
+											{title}
+										</h3>
+										<div className="flex items-center gap-3">
+											<img
+												className="aspect-[3/2] h-5 w-5 rounded-full object-cover"
+												src={avatar}
+												alt=""
+											/>
+											<p className="text-base leading-7 font-skmodernistregular text-gray-600 dark:text-gray-400">
+												{user}
+											</p>
+										</div>
+									</Link>
+								) : (
+									<>
+										<Link href={`/watch/${id}`}>
+											<div className="relative">
+												<img
+													className="aspect-[3/2] w-full rounded-2xl object-cover"
+													src={poster}
+													alt=""
+												/>
+												<div className="absolute bottom-0 left-0">
+													<span className="inline-flex items-center rounded-md bg-[#FE5821] px-2.5 py-0.5 text-sm font-medium text-white">
+														{game.title}
+													</span>
+												</div>
+											</div>
+
+											<h3 className="mt-6 text-lg font-skmodernistbold leading-8 tracking-tight text-dark dark:text-light ">
+												{title}
+											</h3>
+											<div className="flex items-center gap-3">
+												<img
+													className="aspect-[3/2] h-5 w-5 rounded-full object-cover"
+													src={avatar}
+													alt=""
+												/>
+												<p className="text-base leading-7 font-skmodernistregular  text-gray-600 dark:text-gray-400">
+													{user}
+												</p>
+											</div>
+										</Link>
+									</>
+								)}
+							</li>
+						)
+					)}
+				</ul>
+			</div>
 		</div>
 	);
-};
-
-export default Home;
+}
