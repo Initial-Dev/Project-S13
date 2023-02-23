@@ -1,105 +1,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { RiCompassDiscoverLine } from 'react-icons/ri';
-const data = [
-	{
-		id: '00001',
-		title: 'Gameplay Marvel Spider-man PS5',
-		user: 'Taiga Kagami',
-		url: '../videos/video1.mp4',
-		poster: '../poster/video1Poster.png',
-		avatar: '../avatar/kagami.jpg',
-		game: {
-			title: "Marvel's Spider-Man",
-			logo: '../gameBadge/video1.png',
-		},
-	},
-	{
-		id: '00002',
-		title: 'Dragon Ball FighterZ Gohan SSJ2',
-		user: 'Tetsuya Kuroko',
-		url: '../videos/video2.mp4',
-		poster: '../poster/video2Poster.png',
-		avatar: '../avatar/kuroko.jpg',
-		game: {
-			title: 'Dragon Ball FighterZ',
-			logo: '../gameBadge/video2.png',
-		},
-	},
-	{
-		id: '00003',
-		title: 'Shiro become Archer',
-		user: 'Tetsuya Kuroko',
-		url: '../videos/video.m3u8',
-		poster: '../poster/video3Poster.png',
-		avatar: '../avatar/kuroko.jpg',
-		game: {
-			title: 'Fate Stay Night',
-			logo: '../gameBadge/video2.png',
-		},
-	},
-	{
-		id: '00003',
-		title: 'Shiro become Archer',
-		user: 'Tetsuya Kuroko',
-		url: '../videos/video.m3u8',
-		poster: '../poster/video3Poster.png',
-		avatar: '../avatar/kuroko.jpg',
-		game: {
-			title: 'Fate Stay Night',
-			logo: '../gameBadge/video2.png',
-		},
-	},
-	{
-		id: '00003',
-		title: 'Shiro become Archer',
-		user: 'Tetsuya Kuroko',
-		url: '../videos/video.m3u8',
-		poster: '../poster/video3Poster.png',
-		avatar: '../avatar/kuroko.jpg',
-		game: {
-			title: 'Fate Stay Night',
-			logo: '../gameBadge/video2.png',
-		},
-	},
-	{
-		id: '00003',
-		title: 'Shiro become Archer',
-		user: 'Tetsuya Kuroko',
-		url: '../videos/video.m3u8',
-		poster: '../poster/video3Poster.png',
-		avatar: '../avatar/kuroko.jpg',
-		game: {
-			title: 'Fate Stay Night',
-			logo: '../gameBadge/video2.png',
-		},
-	},
-	{
-		id: '00003',
-		title: 'Shiro become Archer',
-		user: 'Tetsuya Kuroko',
-		url: '../videos/video.m3u8',
-		poster: '../poster/video3Poster.png',
-		avatar: '../avatar/kuroko.jpg',
-		game: {
-			title: 'Fate Stay Night',
-			logo: '../gameBadge/video2.png',
-		},
-	},
-	{
-		id: '00003',
-		title: 'Shiro become Archer',
-		user: 'Tetsuya Kuroko',
-		url: '../videos/video.m3u8',
-		poster: '../poster/video3Poster.png',
-		avatar: '../avatar/kuroko.jpg',
-		game: {
-			title: 'Fate Stay Night',
-			logo: '../gameBadge/video2.png',
-		},
-	},
-];
-
+import videos from '../videos.json';
 export default function Home() {
 	const [hoveredVideo, setHoveredVideo] = useState(null);
 
@@ -109,7 +11,7 @@ export default function Home() {
 				<div className="mx-auto max-w-2xl lg:mx-0">
 					<div className="flex flex-row items-center gap-4 text-3xl font-skmodernistbold tracking-tight text-dark dark:text-light sm:text-4xl">
 						<RiCompassDiscoverLine />
-						<h2>Discover </h2>
+						<h2>Discover</h2>
 					</div>
 				</div>
 
@@ -117,7 +19,7 @@ export default function Home() {
 					role="list"
 					className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
 				>
-					{data.map(
+					{videos.map(
 						({ id, title, user, url, poster, game, avatar }) => (
 							<li
 								key={id}
