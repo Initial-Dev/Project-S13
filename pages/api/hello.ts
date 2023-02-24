@@ -1,13 +1,17 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-
-type Data = {
-  name: string
-}
+import mp4ToHls from "./toolbox/mp4ToHls";
+import {Exception} from "@jest/types/build/Circus";
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<any>
 ) {
-  res.status(200).json({ name: 'John Doe' })
+  try {
+    mp4ToHls('test.mp4')
+    res.status(200).json({etat: 'ok'});
+  } catch (e) {
+    res.status(200).json({ erreur: e });
+  }
+
 }
