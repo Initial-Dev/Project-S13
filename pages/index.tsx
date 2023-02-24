@@ -1,3 +1,4 @@
+import { MediaOutlet, MediaPlayer } from '@vidstack/react';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import { RiCompassDiscoverLine } from 'react-icons/ri';
@@ -29,19 +30,30 @@ export default function Home() {
 
 				<ul
 					role="list"
-					className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+					className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 "
 				>
 					{videosList.map(
 						({ id, title, user, url, poster, game, avatar }) => (
 							<li
+								className="Transition"
 								key={id}
 								onMouseEnter={() => setHoveredVideo(url)}
 								onMouseLeave={() => setHoveredVideo(null)}
 							>
 								{hoveredVideo === url ? (
 									<Link href={`/watch/${id}`}>
+										{/*<MediaPlayer
+											className="rounded-2xl overflow-hidden"
+											autoplay
+											muted
+											poster={poster}
+											src={url}
+										>
+											<MediaOutlet />
+										</MediaPlayer>*/}
+
 										<video
-											className="aspect-[3/2] w-full rounded-2xl object-cover transition ease-in-out delay-300 hover:-translate-y-1 hover:scale-110 "
+											className="rounded-2xl object-cover"
 											autoPlay
 											muted
 											poster={poster}
@@ -67,7 +79,7 @@ export default function Home() {
 										<Link href={`/watch/${id}`}>
 											<div className="relative">
 												<img
-													className="aspect-[3/2] w-full rounded-2xl object-cover"
+													className="rounded-2xl object-cover"
 													src={poster}
 													alt=""
 												/>

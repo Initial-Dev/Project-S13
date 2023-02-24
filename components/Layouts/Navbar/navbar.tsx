@@ -64,7 +64,7 @@ const Navbar = () => {
 			</nav>
 			{/* Condition pour afficher la deuxième navbar uniquement sur les écrans de taille mobile */}
 			{isMounted && (
-				<nav className="fixed z-10 bg-dark/20 dark:bg-dark/40 border-t-2 border-gray-800/10 dark:border-gray-100/10 bottom-0 left-0 right-0 p-2 mx-auto flex flex-row items-center justify-center md:hidden backdrop-blur">
+				<nav className="fixed z-10 bg-dark/20 dark:bg-dark/40 rounded-t-xl border-t-2 border-gray-800/10 dark:border-gray-100/10 bottom-0 left-0 right-0 p-2 mx-auto flex flex-row items-center justify-center md:hidden backdrop-blur">
 					<div className="flex flex-row justify-center gap-12">
 						{footerNavigation.map(({ href, name, icon: Icon }) => (
 							<a

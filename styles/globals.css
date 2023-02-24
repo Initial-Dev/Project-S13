@@ -16,3 +16,11 @@
 	font-family: 'Sk-Modernist-Regular';
 	src: url('../fonts/Sk-Modernist-Regular.otf');
 }
+
+.Transition {
+	transition: transform 0.3s ease-in-out;
+}
+
+.Transition:hover {
+	transform: scale(1.1);
+}
