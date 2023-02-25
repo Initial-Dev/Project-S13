@@ -70,7 +70,7 @@ const playerDesktop = ({ url, logo, gametitle, avatar, user }) => {
 			onPlay={() => setIsPlaying(false)}
 			onPause={() => setIsPlaying(true)}
 		>
-			{/*  */}
+			{/* */}
 			<div
 				className="relative"
 				onMouseEnter={handleMouseEnter}
@@ -87,7 +87,7 @@ const playerDesktop = ({ url, logo, gametitle, avatar, user }) => {
 							<MediaTime type="current" />
 						</div>
 						<MediaTimeSlider
-							className="mx-auto w-96 md:w-10/12 lg:w-10/12"
+							className="mx-auto w-1/2 md:w-10/12 lg:w-10/12 xl:w-10/12"
 							style={{
 								'--thumb-size': '14px',
 								'--track-height': '4px',
@@ -106,7 +106,7 @@ const playerDesktop = ({ url, logo, gametitle, avatar, user }) => {
 						<div className="flex">
 							<MediaPlayButton />
 							<MediaMuteButton />
-							<div className="mx-auto w-44 ">
+							<div className="mx-auto w-20 md:w-40 lg:w-50 xl:w-60 ">
 								<MediaVolumeSlider />
 							</div>
 						</div>

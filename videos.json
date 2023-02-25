@@ -8,7 +8,7 @@
 		"avatar": "../avatar/kagami.jpg",
 		"game": {
 			"title": "Marvel's Spider-Man",
-			"logo": "../gameBadge/video1.png"
+			"logo": "../gameBadge/msp.png"
 		}
 	},
 	{
@@ -20,7 +20,7 @@
 		"avatar": "../avatar/kuroko.jpg",
 		"game": {
 			"title": "Dragon Ball FighterZ",
-			"logo": "../gameBadge/video2.png"
+			"logo": "../gameBadge/dbfz.png"
 		}
 	},
 	{
@@ -32,7 +32,7 @@
 		"avatar": "../avatar/kuroko.jpg",
 		"game": {
 			"title": "Dragon Ball Z Kakarot",
-			"logo": "../gameBadge/video2.png"
+			"logo": "../gameBadge/dbzk.webp"
 		}
 	},
 	{
@@ -44,7 +44,7 @@
 		"avatar": "../avatar/kuroko.jpg",
 		"game": {
 			"title": "FIFA23",
-			"logo": "../gameBadge/video2.png"
+			"logo": "../gameBadge/fifa23.png"
 		}
 	},
 	{
@@ -56,7 +56,7 @@
 		"avatar": "../avatar/kuroko.jpg",
 		"game": {
 			"title": "FIFA23",
-			"logo": "../gameBadge/video2.png"
+			"logo": "../gameBadge/fifa23.png"
 		}
 	},
 	{
@@ -68,7 +68,7 @@
 		"avatar": "../avatar/kuroko.jpg",
 		"game": {
 			"title": "FIFA23",
-			"logo": "../gameBadge/video2.png"
+			"logo": "../gameBadge/fifa23.png"
 		}
 	},
 	{
@@ -80,7 +80,7 @@
 		"avatar": "../avatar/kuroko.jpg",
 		"game": {
 			"title": "FIFA23",
-			"logo": "../gameBadge/video2.png"
+			"logo": "../gameBadge/fifa23.png"
 		}
 	},
 	{
@@ -92,7 +92,7 @@
 		"avatar": "../avatar/kuroko.jpg",
 		"game": {
 			"title": "Cyberpunk 2077",
-			"logo": "../gameBadge/video2.png"
+			"logo": "../gameBadge/cb2077.png"
 		}
 	},
 	{
@@ -104,7 +104,7 @@
 		"avatar": "../avatar/kuroko.jpg",
 		"game": {
 			"title": "League of Legends",
-			"logo": "../gameBadge/video2.png"
+			"logo": "../gameBadge/lol.png"
 		}
 	},
 	{
@@ -116,7 +116,7 @@
 		"avatar": "../avatar/kuroko.jpg",
 		"game": {
 			"title": "Cyberpunk 2077",
-			"logo": "../gameBadge/video2.png"
+			"logo": "../gameBadge/cb2077.png"
 		}
 	},
 	{
@@ -128,7 +128,7 @@
 		"avatar": "../avatar/kuroko.jpg",
 		"game": {
 			"title": "Cyberpunk 2077",
-			"logo": "../gameBadge/video2.png"
+			"logo": "../gameBadge/cb2077.png"
 		}
 	},
 	{
@@ -140,7 +140,7 @@
 		"avatar": "../avatar/kuroko.jpg",
 		"game": {
 			"title": "League of Legends",
-			"logo": "../gameBadge/video2.png"
+			"logo": "../gameBadge/lol.png"
 		}
 	}
 ]

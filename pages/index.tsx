@@ -42,7 +42,7 @@ export default function Home() {
 							>
 								{hoveredVideo === url ? (
 									<Link href={`/watch/${id}`}>
-										{/*<MediaPlayer
+										{/* <MediaPlayer
 											className="rounded-2xl overflow-hidden"
 											autoplay
 											muted
@@ -50,8 +50,7 @@ export default function Home() {
 											src={url}
 										>
 											<MediaOutlet />
-										</MediaPlayer>*/}
-
+										</MediaPlayer> */}
 										<video
 											className="rounded-2xl object-cover"
 											autoPlay

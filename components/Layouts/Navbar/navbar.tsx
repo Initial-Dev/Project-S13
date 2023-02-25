@@ -32,7 +32,7 @@ const Navbar = () => {
 	const { pathname } = useRouter();
 	return (
 		<>
-			<nav className="sticky border-b-2 border-gray-800/10 bg-dark/10 dark:border-gray-100/10 font-skmodernistregular top-0 right-5 z-10 p-4 mx-auto flex flex-row items-center backdrop-blur md:px-0 lg:max-w-full">
+			<nav className="sticky border-b-2 border-gray-800/10 bg-dark/10 dark:border-gray-100/10 font-skmodernistregular top-0 right-5 z-40 p-4 mx-auto flex flex-row items-center backdrop-blur md:px-0 lg:max-w-full">
 				{navigation.map(({ href, name }, index) => (
 					<Link key={href} href={href}>
 						<div
