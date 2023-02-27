@@ -30,13 +30,13 @@
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	width: 100%;
+	min-width: 100%;
+	min-height: 100%;
 	z-index: 1;
-	padding: 2px 4px;
+	background: #000;
 }
 
 .media-controls {
-	display: flex;
 	width: 100%;
 	justify-content: space-between;
 }

@@ -50,16 +50,13 @@ export const VideoPlayer = () => {
 			{video && (
 				<>
 					{isMobile ? (
-						<div className="sticky top-0">
-							<VideoMobile
-								url={video.url}
-								poster={video.poster}
-								logo={video.game.logo}
-								gametitle={video.game.title}
-								avatar={video.avatar}
-								user={video.user}
-							/>
-						</div>
+						<VideoMobile
+							url={video.url}
+							logo={video.game.logo}
+							gametitle={video.game.title}
+							avatar={video.avatar}
+							user={video.user}
+						/>
 					) : (
 						<div className="relative flex flex-col justify-center items-center snap-x lg:h-full xl:h-full my-6">
 							<>

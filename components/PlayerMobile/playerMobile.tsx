@@ -40,43 +40,17 @@ const PlayerMobile = ({ url, logo, gametitle, avatar, user }) => {
 	);
 
 	return (
-		<div className="absolute">
-			<MediaPlayer src={url} preload="auto" autoplay loop ref={videoRef}>
-				<div onTouchStart={handleScreenClick}>
-					<MediaOutlet />
-					<div
-						className={`media-ui-controller ${
-							showControls
-								? 'opacity-100'
-								: 'opacity-0 pointer-events-none'
-						} transition-opacity duration-300`}
-					>
-						<div className="absolute bottom-0 left-0 w-full h-full z-1">
-							<div className="flex w-full h-full justify-center items-center opacity-70 ">
-								<MediaPlayButton />
-							</div>
-						</div>
-						<div className="media-controls-container">
-							<div className="media-controls">
-								<MediaTimeSlider>
-									<SliderThumb />
-									<SliderTrackFill />
-								</MediaTimeSlider>
-								<MediaFullscreenButton />
-							</div>
-						</div>
-
-						<div className="absolute top-4 right-5">
-							<GameBadgeMobile
-								logo={logo}
-								gametitle={gametitle}
-							/>
-						</div>
-						<div className="absolute top-4 left-0">
-							<AvatarUserMobile avatar={avatar} user={user} />
-						</div>
-					</div>
-				</div>
+		// mettre le player à l'hroizontale
+		<div className="media-controls-container">
+			<MediaPlayer
+				className="rotate-90"
+				src={url}
+				preload="auto"
+				autoplay
+				loop
+				ref={videoRef}
+			>
+				<MediaOutlet />
 			</MediaPlayer>
 		</div>
 	);
