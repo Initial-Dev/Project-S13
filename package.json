@@ -10,10 +10,14 @@
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@types/fluent-ffmpeg": "^2.1.20",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "fluent-ffmpeg": "^2.1.2",
     "hls-server": "^1.5.0",
     "next": "latest",
+    "node-pg-migrate": "^6.2.2",
+    "pg": "^8.9.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "storybook-addon-next": "^1.7.1"
