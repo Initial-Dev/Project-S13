@@ -14,7 +14,7 @@ import {
 	MediaTimeSlider,
 	MediaVolumeSlider,
 } from '@vidstack/react';
-import AvatarUser from '../PlayerMobile/avatarUser';
+import AvatarUser from './avatarUser';
 import GameBadge from './gameBadge';
 
 const playerDesktop = ({ url, logo, gametitle, avatar, user }) => {
@@ -79,7 +79,7 @@ const playerDesktop = ({ url, logo, gametitle, avatar, user }) => {
 				<MediaOutlet onClick={onVideoPress} />
 				<div
 					className={`media-ui ${
-						showMediaUi ? 'opacity-100' : 'opacity-0'
+						showMediaUi ? 'opacity-100' : 'opacity-0 '
 					} transition-opacity duration-300 font-skmodernistregular`}
 				>
 					<div className="absolute bottom-16 left-5 right-5 gap-3 flex justify-center items-center">
