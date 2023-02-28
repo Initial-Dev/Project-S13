@@ -14,16 +14,17 @@ import AvatarUserMobile from './avatarUserMobile';
 import GameBadgeMobile from './gameBadgeMobile';
 
 const PlayerMobile = ({ url, logo, gametitle, avatar, user }) => {
+	const [playing, setPlaying] = useState(false);
 	const videoRef = useRef(null);
-	const [showControls, setShowControls] = useState(true);
-	const [timer, setTimer] = useState(null);
 
-	const handleScreenClick = () => {
-		setShowControls(true);
-		if (timer) {
-			clearTimeout(timer);
+	const onVideoPress = () => {
+		if (playing) {
+			videoRef.current.pause();
+			setPlaying(false);
+		} else {
+			videoRef.current.play();
+			setPlaying(true);
 		}
-		setTimer(setTimeout(() => setShowControls(false), 2000));
 	};
 
 	const SliderThumb = () => (
@@ -40,14 +41,14 @@ const PlayerMobile = ({ url, logo, gametitle, avatar, user }) => {
 	);
 
 	return (
-		// mettre le player à l'hroizontale
-		<div className="media-controls-container">
+		<div className="video">
 			<MediaPlayer
-				className="rotate-90"
+				className="video__player"
 				src={url}
 				preload="auto"
-				autoplay
+				controls={false}
 				loop
+				onClick={onVideoPress}
 				ref={videoRef}
 			>
 				<MediaOutlet />

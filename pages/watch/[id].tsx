@@ -50,13 +50,27 @@ export const VideoPlayer = () => {
 			{video && (
 				<>
 					{isMobile ? (
-						<VideoMobile
-							url={video.url}
-							logo={video.game.logo}
-							gametitle={video.game.title}
-							avatar={video.avatar}
-							user={video.user}
-						/>
+						<>
+							<div className="app">
+								<div className="app__videos">
+									{videos.map((video, index) => (
+										<VideoMobile
+											key={video.id}
+											url={video.url}
+											logo={video.game.logo}
+											gametitle={video.game.title}
+											avatar={video.avatar}
+											user={video.user}
+											nextVideoUrl={
+												index < videos.length - 1
+													? videos[index + 1].url
+													: null
+											}
+										/>
+									))}
+								</div>
+							</div>
+						</>
 					) : (
 						<div className="relative flex flex-col justify-center items-center snap-x lg:h-full xl:h-full my-6">
 							<>
@@ -137,3 +151,36 @@ export const VideoPlayer = () => {
 };
 
 export default VideoPlayer;
+
+/*
+<>
+							{videosList.map(
+								({
+									id,
+									title,
+									user,
+									url,
+									poster,
+									game,
+									avatar,
+								}) => (
+									<div
+										className={`app ${
+											id === video.id ? 'playing' : ''
+										}`}
+									>
+										<div className="app__videos">
+											<VideoMobile
+												key={id}
+												url={url}
+												logo={undefined}
+												gametitle={undefined}
+												avatar={undefined}
+												user={undefined}
+											/>
+										</div>
+									</div>
+								)
+							)}
+						</>
+ */

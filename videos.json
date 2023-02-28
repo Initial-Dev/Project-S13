@@ -142,5 +142,17 @@
 			"title": "League of Legends",
 			"logo": "../gameBadge/lol.png"
 		}
+	},
+	{
+		"id": "00013",
+		"title": "Dokkan",
+		"user": "Kagami",
+		"url": "../videos/video13.MOV",
+		"poster": "../poster/video12Poster.png",
+		"avatar": "../avatar/kuroko.jpg",
+		"game": {
+			"title": "Dokkan",
+			"logo": ""
+		}
 	}
 ]
