@@ -1,19 +1,24 @@
 import { UserPlusIcon } from '@heroicons/react/24/outline';
 export default function AvatarUserMobile({ avatar, user }) {
 	return (
-		<div className="inline-flex items-center rounded-full px-6 py-1.5 gap-3  ">
-			<button>
-				<img
-					src={avatar}
-					alt="logo"
-					className="h-4 w-4 rounded-full "
-				/>
-			</button>
-			<h1 className="text-xs text-white font-skmodernistregular">
-				{user}
-			</h1>
-			<button>
-				<UserPlusIcon className="h-3 w-3 md:h-5 md:w-5" />
+		<div className="flex justify-between items-center w-full px-6 py-1.5">
+			<div className="flex items-center gap-3">
+				<button>
+					<img
+						src={avatar}
+						alt="logo"
+						className="h-10 w-10 rounded-full"
+					/>
+				</button>
+				<h1 className="text-md text-dark dark:text-white font-skmodernistbold">
+					{user}
+				</h1>
+			</div>
+			<button className="flex items-center gap-3 px-6 py-1.5 rounded-lg border-b-2 border-gray-800/10 bg-dark/10 dark:bg-light/10 dark:border-orange-100/10">
+				<h1 className="text-md text-dark dark:text-white font-skmodernistbold">
+					Suivre
+				</h1>
+				<UserPlusIcon className="h-5 w-5" />
 			</button>
 		</div>
 	);

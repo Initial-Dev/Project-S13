@@ -1,19 +1,19 @@
 import { useEffect, useRef, useState } from 'react';
+
 import 'vidstack/styles/base.css';
 import 'vidstack/styles/ui/buttons.css';
 import 'vidstack/styles/ui/sliders.css';
 
 import {
-	MediaFullscreenButton,
 	MediaOutlet,
-	MediaPlayButton,
 	MediaPlayer,
+	MediaSliderVideo,
 	MediaTimeSlider,
 } from '@vidstack/react';
 import AvatarUserMobile from './avatarUserMobile';
 import GameBadgeMobile from './gameBadgeMobile';
 
-const PlayerMobile = ({ url, logo, gametitle, avatar, user }) => {
+const PlayerMobile = ({ url, logo, gametitle, avatar, user, title }) => {
 	const [playing, setPlaying] = useState(false);
 	const videoRef = useRef(null);
 
@@ -48,13 +48,37 @@ const PlayerMobile = ({ url, logo, gametitle, avatar, user }) => {
 				preload="auto"
 				controls={false}
 				loop
-				onClick={onVideoPress}
 				ref={videoRef}
 			>
-				<MediaOutlet />
+				<MediaOutlet onClick={onVideoPress} />
+
+				<div>
+					<MediaTimeSlider
+						className="mx-auto w-full h-full"
+						style={{
+							'--thumb-size': '14px',
+							'--track-height': '4px',
+						}}
+					>
+						<MediaSliderVideo src={url} slot="preview" />
+						<SliderThumb />
+						<SliderTrackFill />
+					</MediaTimeSlider>
+				</div>
+				<h1 className="text-dark dark:text-light text-md font-skmodernistregular px-6 py-3">
+					{title}
+				</h1>
+
+				<div className="  ">
+					<AvatarUserMobile avatar={avatar} user={user} />
+				</div>
 			</MediaPlayer>
 		</div>
 	);
 };
 
 export default PlayerMobile;
+
+// <div className="  ">
+//					<GameBadgeMobile logo={logo} gametitle={gametitle} />
+//				</div>

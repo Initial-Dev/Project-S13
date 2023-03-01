@@ -54,19 +54,22 @@ export const VideoPlayer = () => {
 							<div className="app">
 								<div className="app__videos">
 									{videos.map((video, index) => (
-										<VideoMobile
-											key={video.id}
-											url={video.url}
-											logo={video.game.logo}
-											gametitle={video.game.title}
-											avatar={video.avatar}
-											user={video.user}
-											nextVideoUrl={
-												index < videos.length - 1
-													? videos[index + 1].url
-													: null
-											}
-										/>
+										<>
+											<VideoMobile
+												key={video.id}
+												url={video.url}
+												logo={video.game.logo}
+												gametitle={video.game.title}
+												avatar={video.avatar}
+												user={video.user}
+												title={video.title}
+												nextVideoUrl={
+													index < videos.length - 1
+														? videos[index + 1].url
+														: null
+												}
+											/>
+										</>
 									))}
 								</div>
 							</div>

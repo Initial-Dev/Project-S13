@@ -34,6 +34,7 @@ specifiers:
   react: 18.2.0
   react-dom: 18.2.0
   react-icons: ^4.7.1
+  react-intersection-observer: ^9.4.3
   storybook-addon-next: ^1.7.1
   tailwindcss: ^3.2.1
   tailwindcss-filters: ^3.0.0
@@ -57,6 +58,7 @@ dependencies:
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-icons: 4.7.1_react@18.2.0
+  react-intersection-observer: 9.4.3_react@18.2.0
   storybook-addon-next: 1.7.1_tai4hmvdfabxwvfurn5vcrqag4
   tailwindcss-filters: 3.0.0
   vidstack: 0.3.2
@@ -9547,6 +9549,14 @@ packages:
       is-dom: 1.1.0
       prop-types: 15.8.1
       react: 18.2.0
+
+  /react-intersection-observer/9.4.3_react@18.2.0:
+    resolution: {integrity: sha512-WNRqMQvKpupr6MzecAQI0Pj0+JQong307knLP4g/nBex7kYfIaZsPpXaIhKHR+oV8z+goUbH9e10j6lGRnTzlQ==}
+    peerDependencies:
+      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
