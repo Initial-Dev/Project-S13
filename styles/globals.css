@@ -52,6 +52,57 @@
 	scrollbar-width: none; /* Firefox */
 }
 
+.video-container {
+	position: relative;
+	width: 90%;
+	max-width: 1000px;
+	display: flex;
+	justify-content: center;
+	margin-inline: auto;
+}
+
+.video-container.theater,
+.video-container.full-screen {
+	max-width: initial;
+	width: 100%;
+}
+
+.video-container.theater {
+	max-height: 90vh;
+}
+
+.video-container.full-screen {
+	max-height: 100vh;
+}
+
+.video-desktop {
+	position: absolute;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+}
+
+.video-change {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 100;
+	z-index: -1;
+	display: 'flex';
+	justify-content: 'center';
+}
+
+.video-next {
+	flex: 1;
+	align-self: 'flex-start';
+}
+
+.video-previous {
+	flex: 1;
+	align-self: 'flex-end';
+}
+
 .video {
 	position: relative;
 	background-color: none;

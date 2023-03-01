@@ -75,76 +75,70 @@ export const VideoPlayer = () => {
 							</div>
 						</>
 					) : (
-						<div className="relative flex flex-col justify-center items-center snap-x lg:h-full xl:h-full my-6">
-							<>
-								<div className="z-10 w-full sm:max-w-screen-sm md:max-w-screen-md snap-center lg:max-w-full-lg xl:max-w-screen-xl mb-4 relative">
-									<VideoDesktop
-										url={video.url}
-										logo={video.game.logo}
-										gametitle={video.game.title}
-										avatar={video.avatar}
-										user={video.user}
-									/>
-									<h1 className="text-dark dark:text-light text-sm md:text-lg lg:text-xl xl:text-2xl font-skmodernistbold">
-										{video.title}
-									</h1>
-								</div>
-								<>
-									<div>
-										<img
-											className="z-0 brightness-75 absolute w-7/12 h-7/12 md:w-6/12 my-auto inset-y-0 right-10 object-fit-cover rounded-lg"
-											src={
-												videosList[
-													(videosList.findIndex(
-														(v) => v.id === video.id
-													) +
-														1) %
-														videosList.length
-												].poster
-											}
-											alt=""
-											onClick={() => {
-												const currentIndex =
-													videosList.findIndex(
-														(v) => v.id === video.id
-													);
-												const nextIndex =
-													(currentIndex + 1) %
-													videosList.length;
-												setVideo(videosList[nextIndex]);
-											}}
-										/>
-										<img
-											className="z-0 brightness-75 absolute w-7/12 h-7/12 md:w-6/12   my-auto inset-y-0 left-10 object-fit-cover rounded-lg"
-											src={
-												videosList[
-													(videosList.findIndex(
-														(v) => v.id === video.id
-													) +
-														videosList.length -
-														1) %
-														videosList.length
-												].poster
-											}
-											alt=""
-											onClick={() => {
-												const currentIndex =
-													videosList.findIndex(
-														(v) => v.id === video.id
-													);
-												const previousIndex =
-													(currentIndex +
-														videosList.length -
-														1) %
-													videosList.length;
-												setVideo(
-													videosList[previousIndex]
-												);
-											}}
-										/>
-									</div>
-								</>
-							</>
+						<div className="video-container">
+							<div className="video-desktop">
+								<VideoDesktop
+									url={video.url}
+									logo={video.game.logo}
+									gametitle={video.game.title}
+									avatar={video.avatar}
+									user={video.user}
+								/>
+								<h1 className="text-dark dark:text-light text-sm md:text-lg lg:text-xl xl:text-2xl font-skmodernistbold">
+									{video.title}
+								</h1>
+							</div>
+							<div className="absolute left-0 right-0 z-[-1] flex justify-between">
+								<img
+									className="flex-1 self-start brightness-75 w-2/3 rounded-lg"
+									src={
+										videosList[
+											(videosList.findIndex(
+												(v) => v.id === video.id
+											) +
+												1) %
+												videosList.length
+										].poster
+									}
+									alt=""
+									onClick={() => {
+										const currentIndex =
+											videosList.findIndex(
+												(v) => v.id === video.id
+											);
+										const nextIndex =
+											(currentIndex + 1) %
+											videosList.length;
+										setVideo(videosList[nextIndex]);
+									}}
+								/>
+								<img
+									className="flex-1 self-end brightness-75 w-2/3 rounded-lg"
+									src={
+										videosList[
+											(videosList.findIndex(
+												(v) => v.id === video.id
+											) +
+												videosList.length -
+												1) %
+												videosList.length
+										].poster
+									}
+									alt=""
+									onClick={() => {
+										const currentIndex =
+											videosList.findIndex(
+												(v) => v.id === video.id
+											);
+										const previousIndex =
+											(currentIndex +
+												videosList.length -
+												1) %
+											videosList.length;
+										setVideo(videosList[previousIndex]);
+									}}
+								/>
+							</div>
 						</div>
 					)}
 				</>

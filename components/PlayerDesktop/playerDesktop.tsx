@@ -65,7 +65,6 @@ const playerDesktop = ({ url, logo, gametitle, avatar, user }) => {
 			src={url}
 			preload="auto"
 			autoplay
-			loop
 			ref={videoRef}
 			onPlay={() => setIsPlaying(false)}
 			onPause={() => setIsPlaying(true)}
