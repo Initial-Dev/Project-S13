@@ -54,8 +54,7 @@
 
 .video-container {
 	position: relative;
-	width: 90%;
-	max-width: 1000px;
+
 	display: flex;
 	justify-content: center;
 	margin-inline: auto;
@@ -78,8 +77,8 @@
 .video-desktop {
 	position: absolute;
 	justify-content: center;
-	width: 100%;
-	height: 100%;
+	width: 90%;
+	max-width: 1000px;
 	z-index: 2;
 }
 
