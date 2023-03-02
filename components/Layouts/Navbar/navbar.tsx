@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { signIn, signOut, useSession } from 'next-auth/react';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -11,6 +12,7 @@ import {
 	RiMoonLine,
 	RiSunLine,
 } from 'react-icons/ri';
+
 const navigation = [
 	{ href: '/', name: 'Kameground', icon: RiCompassDiscoverLine },
 ];
@@ -30,6 +32,9 @@ const Navbar = () => {
 		setTheme(theme === 'dark' ? 'light' : 'dark');
 
 	const { pathname } = useRouter();
+
+	const { data: session, status } = useSession();
+	const loading = status === 'loading';
 	return (
 		<>
 			<nav className="sticky border-b-2 border-gray-800/10 bg-dark/10 dark:border-gray-100/10 font-skmodernistregular top-0 right-5 z-40 p-4 mx-auto flex flex-row items-center backdrop-blur md:px-0 lg:max-w-full">
@@ -48,6 +53,56 @@ const Navbar = () => {
 						</div>
 					</Link>
 				))}
+
+				<div className="ml-auto p-2 rounded">
+					<p>
+						{!session && (
+							<>
+								<span className="">You are not signed in</span>
+								<a
+									href={`/api/auth/signin`}
+									className=""
+									onClick={(e) => {
+										e.preventDefault();
+										signIn();
+									}}
+								>
+									Sign in
+								</a>
+							</>
+						)}
+						{session?.user && (
+							<>
+								{session.user.image && (
+									<span
+										style={{
+											backgroundImage: `url('${session.user.image}')`,
+										}}
+										className=""
+									/>
+								)}
+								<span className="">
+									<small>Signed in as</small>
+									<br />
+									<strong>
+										{session.user.email ??
+											session.user.name}
+									</strong>
+								</span>
+								<a
+									href={`/api/auth/signout`}
+									className=""
+									onClick={(e) => {
+										e.preventDefault();
+										signOut();
+									}}
+								>
+									Sign out
+								</a>
+							</>
+						)}
+					</p>
+				</div>
 				<button
 					className="ml-auto p-2 rounded"
 					aria-label="Toggle Dark mode"
