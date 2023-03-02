@@ -16,7 +16,7 @@ const navigation = [
 ];
 
 const footerNavigation = [
-	{ href: '/home', name: 'Explorer', icon: RiCompassDiscoverLine },
+	{ href: '/', name: 'Explorer', icon: RiCompassDiscoverLine },
 	{ href: '/videos', name: 'Parcourir', icon: RiLayoutGridFill },
 	{ href: '/games', name: 'Favoris', icon: BsBookmark },
 	{ href: '/channels', name: 'Profil', icon: FaUserCircle },
