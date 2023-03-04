@@ -1,5 +1,11 @@
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
-export default function AvatarUser({ avatar, user }) {
+
+interface AvatarUserProps {
+	avatar: string;
+	user: string;
+}
+
+export default function AvatarUser({ avatar, user }: AvatarUserProps) {
 	return (
 		<div className="inline-flex items-center  text-white  px-6 py-1.5 gap-3  ">
 			<button>
