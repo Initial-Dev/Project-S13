@@ -1,6 +1,7 @@
 import {
 	AnimatePresence,
 	motion,
+	PanInfo,
 	useMotionValue,
 	useTransform,
 } from 'framer-motion';
@@ -32,7 +33,13 @@ export const VideoPlayer = () => {
 		[videos]
 	);
 
-	function Card(props) {
+	interface CardProps {
+		title: string;
+		imageSrc: string;
+		description: string;
+	}
+
+	function Card(props: CardProps) {
 		const x = useMotionValue(0);
 		const scale = useTransform(x, [-150, 0, 150], [0.5, 1, 0.5]);
 		const rotate = useTransform(x, [-150, 0, 150], [-45, 0, 45], {
@@ -133,7 +140,15 @@ export const VideoPlayer = () => {
 		);
 	}
 
-	function CardNext(props) {
+	interface CardNextProps {
+		index: number;
+		setIndex: (index: number) => void;
+		handleNext: () => void;
+		handlePrevious: () => void;
+		setExitX: (value: number) => void;
+	}
+
+	function CardNext(props: CardNextProps) {
 		const x = useMotionValue(0);
 
 		const scale = useTransform(x, [-150, 0, 150], [0.5, 1, 0.5]);
@@ -141,7 +156,7 @@ export const VideoPlayer = () => {
 			clamp: false,
 		});
 
-		function handleDragEnd(event, info) {
+		function handleDragEnd(event: MouseEvent, info: PanInfo) {
 			if (info.offset.x < -100) {
 				props.setExitX(-250);
 				props.setIndex(props.index + 1);

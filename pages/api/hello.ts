@@ -2,15 +2,15 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import mp4ToHls from "./toolbox/mp4ToHls";
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<any>
-) {
-  try {
-    mp4ToHls('test.mp4')
-    res.status(200).json({etat: 'ok'});
-  } catch (e) {
-    res.status(200).json({ erreur: e });
-  }
 
+export default function handler(
+	req: NextApiRequest,
+	res: NextApiResponse<any>
+) {
+	try {
+		mp4ToHls('test.mp4');
+		res.status(200).json({ etat: 'ok' });
+	} catch (e) {
+		res.status(200).json({ erreur: e });
+	}
 }

@@ -13,16 +13,32 @@ import {
 import AvatarUserMobile from './avatarUserMobile';
 import GameBadgeMobile from './gameBadgeMobile';
 
-const PlayerMobile = ({ url, logo, gametitle, avatar, user, title }) => {
+interface PlayerMobileProps {
+	url: string;
+	logo: string;
+	gametitle: string;
+	avatar: string;
+	user: string;
+	title: string;
+}
+
+const PlayerMobile = ({
+	url,
+	logo,
+	gametitle,
+	avatar,
+	user,
+	title,
+}: PlayerMobileProps) => {
 	const [playing, setPlaying] = useState(false);
 	const videoRef = useRef(null);
 
 	const onVideoPress = () => {
 		if (playing) {
-			videoRef.current.pause();
+			(videoRef.current as unknown as HTMLVideoElement).pause();
 			setPlaying(false);
 		} else {
-			videoRef.current.play();
+			(videoRef.current as unknown as HTMLVideoElement).play();
 			setPlaying(true);
 		}
 	};

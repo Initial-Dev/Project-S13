@@ -17,7 +17,21 @@ import {
 import AvatarUser from './avatarUser';
 import GameBadge from './gameBadge';
 
-const playerDesktop = ({ url, logo, gametitle, avatar, user }) => {
+interface playerDesktopProps {
+	url: string;
+	logo: string;
+	gametitle: string;
+	avatar: string;
+	user: string;
+}
+
+const playerDesktop = ({
+	url,
+	logo,
+	gametitle,
+	avatar,
+	user,
+}: playerDesktopProps) => {
 	const [showMediaUi, setShowMediaUi] = useState(false); // Afficher ou non les boutons de la vidéo
 	const [isPlaying, setIsPlaying] = useState(false); // Afficher ou non les boutons de la vidéo
 	const [playing, setPlaying] = useState(false); // Mettre en pause ou en play la vidéo
@@ -35,10 +49,10 @@ const playerDesktop = ({ url, logo, gametitle, avatar, user }) => {
 	// Fonction pour mettre en pause ou en play la vidéo lorsque je clique dessus
 	const onVideoPress = () => {
 		if (playing) {
-			videoRef.current.pause();
+			(videoRef.current as unknown as HTMLVideoElement).pause();
 			setPlaying(false);
 		} else {
-			videoRef.current.play();
+			(videoRef.current as unknown as HTMLVideoElement).play();
 			setPlaying(true);
 		}
 	};

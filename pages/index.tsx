@@ -6,7 +6,7 @@ import { RiCompassDiscoverLine } from 'react-icons/ri';
 import videos from '../videos.json';
 const Hero = dynamic(() => import('../components/Hero'), { ssr: false });
 export default function Home() {
-	const [hoveredVideo, setHoveredVideo] = useState(null);
+	const [hoveredVideo, setHoveredVideo] = useState<string | null>(null);
 	const videosList = useMemo(() => {
 		return videos.map(({ id, title, user, url, poster, game, avatar }) => ({
 			id,
@@ -33,7 +33,7 @@ export default function Home() {
 
 					<ul
 						role="list"
-						className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 "
+						className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4 "
 					>
 						{videosList.map(
 							({

@@ -1,5 +1,13 @@
 import { UserPlusIcon } from '@heroicons/react/24/outline';
-export default function AvatarUserMobile({ avatar, user }) {
+
+interface AvatarUserMobileProps {
+	avatar: string;
+	user: string;
+}
+export default function AvatarUserMobile({
+	avatar,
+	user,
+}: AvatarUserMobileProps) {
 	return (
 		<div className="flex justify-between items-center w-full px-6 py-1.5">
 			<div className="flex items-center gap-3">
