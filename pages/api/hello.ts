@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import upload from "./toolbox/upload";
+import upload from "./upload";
 import mp4ToHls from "./toolbox/mp4ToHls";
 
 export default function handler(
