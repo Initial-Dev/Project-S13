@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import express, { Request, Response } from 'express';
 import nc from 'next-connect'
 import multer, { FileFilterCallback } from 'multer'
+import mp4ToHls from "./toolbox/mp4ToHls";
 
 export const config = {
     api: {
@@ -12,7 +13,7 @@ export const config = {
 // Configuration de Multer
 const upload = multer({
   storage: multer.diskStorage({
-    destination: './temp/videos',
+    destination: './pages/api/tmp/',
     filename: (req, file, callback) => {
       callback(null, file.originalname)
     },
@@ -30,6 +31,7 @@ const apiRoute = nc<NextApiRequest, NextApiResponse>()
 
 apiRoute.post((req: NextApiRequest & Request, res: NextApiResponse & Response) => {
   upload.single('video')(req, res, (err) => {
+    const filename = req.file?.originalname
     if (err) {
       if (err instanceof multer.MulterError) {
         if (err.code === 'LIMIT_FILE_SIZE') {
@@ -40,6 +42,9 @@ apiRoute.post((req: NextApiRequest & Request, res: NextApiResponse & Response) =
     }
     // Le fichier est disponible dans req.file
     res.status(200).json({ message: "Upload Done!", file: req.file })
+    
+    if(filename)
+      mp4ToHls(filename.toString())
   })
 })
 
