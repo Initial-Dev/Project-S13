@@ -29,7 +29,13 @@ jobs:
               with:
                 node-version: ${{ matrix.node-version }}
                 cache: 'pnpm'
-
+                  
+            - name: Install dependencies
+              run: pnpm install
+              
+            - name: Build /dist
+              run: pnpm run build
+              
             - name: Deploy to my EC2 instance
               uses: easingthemes/ssh-deploy@v2.1.5
               env:
@@ -38,10 +44,6 @@ jobs:
                   REMOTE_HOST: ${{ secrets.EC2_HOST }}
                   REMOTE_USER: ${{ secrets.EC2_USER }}
                   TARGET: ${{ secrets.EC2_TARGET }}
-                  
-            - name: Install dependencies
-              run: pnpm install
               
-            - name: Build /dist
-              run: pnpm run build
+            
 
