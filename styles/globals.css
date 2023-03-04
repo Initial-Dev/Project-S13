@@ -1,3 +1,222 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+	font-family: 'Sk-Modernist-Bold';
+	src: url('../fonts/Sk-Modernist-Bold.otf');
+}
+
+@font-face {
+	font-family: 'Sk-Modernist-Mono';
+	src: url('../fonts/Sk-Modernist-Mono.otf');
+}
+
+@font-face {
+	font-family: 'Sk-Modernist-Regular';
+	src: url('../fonts/Sk-Modernist-Regular.otf');
+}
+
+.Transition {
+	transition: transform 0.3s ease-in-out;
+}
+
+.Transition:hover {
+	transform: scale(1.1);
+}
+
+.app {
+	height: 100vh;
+	background-color: none;
+	display: grid;
+	place-items: center;
+}
+
+.app__videos {
+	position: relative;
+	height: 100%;
+	overflow: scroll;
+	width: 100%;
+	max-width: 500px;
+	scroll-snap-type: y mandatory;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.app__videos::-webkit-scrollbar {
+	display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.app__videos {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+.video-container {
+	position: relative;
+
+	display: flex;
+	justify-content: center;
+	margin-inline: auto;
+}
+
+.video-container.theater,
+.video-container.full-screen {
+	max-width: initial;
+	width: 100%;
+}
+
+.video-container.theater {
+	max-height: 90vh;
+}
+
+.video-container.full-screen {
+	max-height: 100vh;
+}
+
+.video-desktop {
+	position: absolute;
+	justify-content: center;
+	width: 90%;
+	max-width: 1000px;
+	z-index: 2;
+}
+
+.video-change {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 100;
+	z-index: -1;
+	display: 'flex';
+	justify-content: 'center';
+}
+
+.video-next {
+	flex: 1;
+	align-self: 'flex-start';
+}
+
+.video-previous {
+	flex: 1;
+	align-self: 'flex-end';
+}
+
+.video {
+	position: relative;
+	background-color: none;
+	width: 100%;
+	height: 100%;
+	scroll-snap-align: start;
+}
+
+.video__player {
+	object-fit: fill;
+	width: 100%;
+	height: 100%;
+}
+
+.video__slide {
+	object-fit: fill;
+	width: 100%;
+}
+
+.card {
+	width: var(--card-width);
+	height: var(--card-height);
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	padding: 0 36px;
+	perspective: 2500px;
+	margin: 0 50px;
+}
+
+.cover-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.wrapper {
+	transition: all 0.5s;
+	position: absolute;
+	width: 100%;
+	z-index: -1;
+}
+
+.card:hover .wrapper {
+	transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+	box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+.wrapper::before,
+.wrapper::after {
+	content: '';
+	opacity: 0;
+	width: 100%;
+	height: 80px;
+	transition: all 0.5s;
+	position: absolute;
+	left: 0;
+}
+.wrapper::before {
+	top: 0;
+	height: 100%;
+	background-image: linear-gradient(
+		to top,
+		transparent 46%,
+		rgba(12, 13, 19, 0.5) 68%,
+		rgba(12, 13, 19) 97%
+	);
+}
+.wrapper::after {
+	bottom: 0;
+	opacity: 1;
+	background-image: linear-gradient(
+		to bottom,
+		transparent 46%,
+		rgba(12, 13, 19, 0.5) 68%,
+		rgba(12, 13, 19) 97%
+	);
+}
+
+.card:hover .wrapper::before,
+.wrapper::after {
+	opacity: 1;
+}
+
+.card:hover .wrapper::after {
+	height: 120px;
+}
+.title {
+	width: 100%;
+	transition: transform 0.5s;
+}
+.card:hover .title {
+	transform: translate3d(0%, -50px, 100px);
+}
+
+.character {
+	width: 100%;
+	opacity: 0;
+	transition: all 0.5s;
+	position: absolute;
+	z-index: -1;
+}
+
+.card:hover .character {
+	opacity: 1;
+	transform: translate3d(0%, -30%, 100px);
+}
+
+:root {
+	--card-height: 300px;
+	--card-width: calc(var(--card-height) / 1.5);
+}
+* {
+	box-sizing: border-box;
+}
