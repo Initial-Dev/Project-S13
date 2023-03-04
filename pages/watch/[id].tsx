@@ -15,7 +15,7 @@ import videos from '../../videos.json';
 export const VideoPlayer = () => {
 	const router = useRouter();
 	const [isMobile, setIsMobile] = useState(false);
-	const [video, setVideo] = useState(null);
+	const [video, setVideo] = useState<Video | null>(null);
 	const [index, setIndex] = useState(0);
 	const [exitX, setExitX] = useState('100%');
 
@@ -34,9 +34,25 @@ export const VideoPlayer = () => {
 	);
 
 	interface CardProps {
-		title: string;
-		imageSrc: string;
-		description: string;
+		title?: string;
+		imageSrc?: string;
+		description?: string;
+		drag?: any;
+		initial: any;
+		animate: any;
+		transition: any;
+		exitX?: any;
+
+	}
+
+	type Video = {
+		id: any;
+		title: any;
+		user: any;
+		url: any;
+		poster: any;
+		game: any;
+		avatar: any;
 	}
 
 	function Card(props: CardProps) {
@@ -76,7 +92,7 @@ export const VideoPlayer = () => {
 						src={
 							videosList[
 								(videosList.findIndex(
-									(v) => v.id === video.id
+									(v) => v.id === (video ? video.id : null)
 								) +
 									videosList.length -
 									1) %
@@ -90,7 +106,7 @@ export const VideoPlayer = () => {
 		);
 	}
 
-	function CardR(props) {
+	function CardR(props: CardProps) {
 		const x = useMotionValue(0);
 		const scale = useTransform(x, [-150, 0, 150], [0.5, 1, 0.5]);
 		const rotate = useTransform(x, [-150, 0, 150], [-45, 0, 45], {
@@ -127,7 +143,7 @@ export const VideoPlayer = () => {
 						src={
 							videosList[
 								(videosList.findIndex(
-									(v) => v.id === video.id
+									(v) => v.id === (video ? video.id : null)
 								) +
 									1) %
 									videosList.length
@@ -143,9 +159,15 @@ export const VideoPlayer = () => {
 	interface CardNextProps {
 		index: number;
 		setIndex: (index: number) => void;
-		handleNext: () => void;
-		handlePrevious: () => void;
-		setExitX: (value: number) => void;
+		handleNext?: () => void;
+		handlePrevious?: () => void;
+		setExitX: any;
+		drag: any;
+		initial?: any;
+		animate: any;
+		transition: any;
+		exitX: any;
+		videosList: any;
 	}
 
 	function CardNext(props: CardNextProps) {
@@ -170,13 +192,13 @@ export const VideoPlayer = () => {
 		}
 
 		function handleNext() {
-			const currentIndex = videosList.findIndex((v) => v.id === video.id);
+			const currentIndex = videosList.findIndex((v) => v.id === (video ? video.id : null));
 			const nextIndex = (currentIndex + 1) % videosList.length;
 			setVideo(videosList[nextIndex]);
 		}
 
 		function handlePrevious() {
-			const currentIndex = videosList.findIndex((v) => v.id === video.id);
+			const currentIndex = videosList.findIndex((v) => v.id === (video ? video.id : null));
 			const previousIndex =
 				(currentIndex + videosList.length - 1) % videosList.length;
 			setVideo(videosList[previousIndex]);
@@ -209,14 +231,14 @@ export const VideoPlayer = () => {
 					}}
 				>
 					<VideoDesktop
-						url={video.url}
-						logo={video.game.logo}
-						gametitle={video.game.title}
-						avatar={video.avatar}
-						user={video.user}
+						url={video ? video.url : ''}
+						logo={video ? video.game.logo: ''}
+						gametitle={video ? video.game.title : ''}
+						avatar={video ? video.avatar : ''}
+						user={video ? video.user : ''}
 					/>
 					<h1 className="text-dark dark:text-light text-sm md:text-lg lg:text-xl xl:text-2xl font-skmodernistbold">
-						{video.title}
+						{video ? video.title : ''}
 					</h1>
 				</motion.div>
 			</>
@@ -231,7 +253,9 @@ export const VideoPlayer = () => {
 		const selectedVideo = videos.find(
 			(item) => item.id === router.query.id
 		);
-		setVideo(selectedVideo);
+		if (selectedVideo) {
+			setVideo(selectedVideo);
+		}
 	}, [router.query, videos]);
 
 	useEffect(() => {

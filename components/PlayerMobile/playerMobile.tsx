@@ -20,6 +20,7 @@ interface PlayerMobileProps {
 	avatar: string;
 	user: string;
 	title: string;
+	nextVideoUrl: string | null;
 }
 
 const PlayerMobile = ({
