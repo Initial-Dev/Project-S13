@@ -8,12 +8,27 @@ on:
 
 jobs:
     deploy:
+    
+        strategy:
+          matrix:
+            node-version: [15]
+    
         name: Push to EC2 Instance
         runs-on: ubuntu-latest
 
         steps:
             - name: Checkout the code
               uses: actions/checkout@v1
+              
+            - uses: pnpm/action-setup@v2
+              with:
+                version: 7
+                  
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                node-version: ${{ matrix.node-version }}
+                cache: 'pnpm'
 
             - name: Deploy to my EC2 instance
               uses: easingthemes/ssh-deploy@v2.1.5
