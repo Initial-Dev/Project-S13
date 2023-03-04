@@ -24,8 +24,6 @@ jobs:
                   REMOTE_USER: ${{ secrets.EC2_USER }}
                   TARGET: ${{ secrets.EC2_TARGET }}
 
-            - name: Install dependencies
-              run: pnpm install
     build:
         needs: deploy
         name: Build project in Kameground folder
