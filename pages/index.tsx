@@ -1,6 +1,6 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
 
 const Home: NextPage = () => {
   return (
@@ -12,14 +12,14 @@ const Home: NextPage = () => {
 
       <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
         <h1 className="text-6xl font-bold">
-          Welcome to{' '}
+          Welcome to jooo{" "}
           <a className="text-blue-600" href="https://nextjs.org">
             Next.js :)
           </a>
         </h1>
 
         <p className="mt-3 text-2xl">
-          By Louis - Get started by editing{' '}
+          By Louis - Get started by editing{" "}
           <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
             pages/index.tsx
           </code>
@@ -50,7 +50,7 @@ const Home: NextPage = () => {
             href="https://github.com/vercel/next.js/tree/canary/examples"
             className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
           >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
+            <h3 className="text-2xl font-bold">Examples jooo&rarr;</h3>
             <p className="mt-4 text-xl">
               Discover and deploy boilerplate example Next.js projects.
             </p>
@@ -75,12 +75,12 @@ const Home: NextPage = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

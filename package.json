@@ -5,21 +5,26 @@
     "build": "next build",
     "start": "next start",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "migration": "sequelize db:migrate",
+    "seed": "sequelize db:seed:all"
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@types/fluent-ffmpeg": "^2.1.20",
-    "body-parser": "^1.20.2",
-    "cors": "^2.8.5",
+    "bcryptjs": "^2.4.3",
     "express": "^4.18.2",
     "fluent-ffmpeg": "^2.1.2",
     "hls-server": "^1.5.0",
+    "js-cookie": "^2.2.1",
+    "jsonwebtoken": "^8.5.1",
     "next": "latest",
-    "node-pg-migrate": "^6.2.2",
-    "pg": "^8.9.0",
+    "next-connect": "^0.7.1",
+    "pg": "8.6.0",
+    "pg-hstore": "^2.3.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "sequelize": "^5.21.13",
     "storybook-addon-next": "^1.7.1"
   },
   "devDependencies": {
