@@ -1,5 +1,4 @@
 import GameBadge from 'components/PlayerDesktop/gameBadge';
-import React from 'react';
 import videos from '../../videos.json';
 
 export default function Hero() {

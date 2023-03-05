@@ -22,7 +22,7 @@ export default function Home() {
 	return (
 		<>
 			<Hero />
-			<div className="py-12 sm:py-24">
+			<div className="py-12 sm:py-24 font-skmodernistregular">
 				<div className="mx-auto max-w-7xl px-6 lg:px-8">
 					<div className="mx-auto max-w-2xl lg:mx-0">
 						<div className="flex flex-row items-center gap-4 text-3xl font-skmodernistbold tracking-tight text-dark dark:text-light sm:text-4xl">

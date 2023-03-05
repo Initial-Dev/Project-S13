@@ -27,7 +27,6 @@
 
 .app {
 	height: 100vh;
-	background-color: none;
 	display: grid;
 	place-items: center;
 }
@@ -54,7 +53,6 @@
 
 .video-container {
 	position: relative;
-
 	display: flex;
 	justify-content: center;
 	margin-inline: auto;
