@@ -5,6 +5,7 @@ import FacebookProvider from 'next-auth/providers/facebook';
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 import TwitterProvider from 'next-auth/providers/twitter';
+import * as process from "process";
 
 // import AppleProvider from "next-auth/providers/apple"
 // import EmailProvider from "next-auth/providers/email"
@@ -15,6 +16,7 @@ import TwitterProvider from 'next-auth/providers/twitter';
 const scopes = ['identify'].join(' ');
 
 export const authOptions: NextAuthOptions = {
+
 	// https://next-auth.js.org/configuration/providers/oauth
 	providers: [
 		/* EmailProvider({
@@ -35,8 +37,8 @@ export const authOptions: NextAuthOptions = {
     }),
     */
 		DiscordProvider({
-			clientId: process.env.DISCORD_CLIENT_ID,
-			clientSecret: process.env.DISCORD_CLIENT_SECRET,
+			clientId: process.env.DISCORD_CLIENT_ID ? process.env.DISCORD_CLIENT_ID : "b4coeaxz22plkpsb4j3qndsvjjp6h0",
+			clientSecret: process.env.DISCORD_CLIENT_SECRET ? process.env.DISCORD_CLIENT_SECRET : "oeijp8whff9jucwdyz8vbwzrj74kir",
 			authorization: { params: { scope: scopes } },
 		}),
 	],
