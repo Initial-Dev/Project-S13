@@ -2,6 +2,10 @@ import {FunctionComponent} from "react";
 import {dataToSend} from "./types";
 import Title from "../../components/Title";
 import FormUpload from "../../components/FormUpload";
+import DragDrop from "../../components/DragDrop";
+import OptionsUpload from "../../components/OptionsUpload";
+import {AiOutlineCloudUpload} from "react-icons/ai";
+import {BiImage} from "react-icons/bi";
 
 type Props = {
     data: dataToSend
@@ -13,8 +17,14 @@ const uploadDesktop: FunctionComponent<Props> = (data) => {
                 <Title className={""}/>
                 <div className={"h-full w-5/6 flex flex-col mt-3"}>
                     <FormUpload className={""}/>
-                    <div className={"bg-red-600 mt-5"}>
-
+                    <div className={"mt-5 flex flex-row"}>
+                        <div className={"w-1/2 flex flex-row p-5 gap-5 justify-center"}>
+                            <DragDrop icon={<AiOutlineCloudUpload className={"w-full h-full"}/>} description={"MP4 ou WebM"} />
+                            <DragDrop icon={<BiImage className={"h-full w-full"} />} description={"Couverture / Miniature"}/>
+                        </div>
+                        <div>
+                            <OptionsUpload />
+                        </div>
                     </div>
                     <div className={"mt-5"}>
                         hop
