@@ -37,8 +37,8 @@ export const authOptions: NextAuthOptions = {
     }),
     */
 		DiscordProvider({
-			clientId: process.env.DISCORD_CLIENT_ID ? process.env.DISCORD_CLIENT_ID : "b4coeaxz22plkpsb4j3qndsvjjp6h0",
-			clientSecret: process.env.DISCORD_CLIENT_SECRET ? process.env.DISCORD_CLIENT_SECRET : "oeijp8whff9jucwdyz8vbwzrj74kir",
+			clientId: process.env.DISCORD_CLIENT_ID ? process.env.DISCORD_CLIENT_ID : '',
+			clientSecret: process.env.DISCORD_CLIENT_SECRET ? process.env.DISCORD_CLIENT_SECRET : '',
 			authorization: { params: { scope: scopes } },
 		}),
 	],
