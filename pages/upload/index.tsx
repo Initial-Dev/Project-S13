@@ -1,8 +1,17 @@
 import {FunctionComponent, useState} from "react";
 import UploadMobile from "./uploadMobile";
 import UploadDesktop from "./uploadDesktop";
-import {dataToSend} from "./types";
 
+export type dataToSend = {
+    video: File | null,
+    thumbnail: File | null,
+    title: string,
+    description: string,
+    visibility: boolean,
+    tags: number[],
+    allowComments: boolean,
+    idUser: number
+}
 const upload: FunctionComponent = () => {
 
     const isMobile = false;

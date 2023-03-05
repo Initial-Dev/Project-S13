@@ -1,5 +1,5 @@
 import {FunctionComponent} from "react";
-import {dataToSend} from "./types";
+import {dataToSend} from "./index";
 import Title from "../../components/Title";
 import FormUpload from "../../components/FormUpload";
 import DragDrop from "../../components/DragDrop";
