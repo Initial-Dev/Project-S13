@@ -8,3 +8,5 @@ export type dataToSend = {
     allowComments: boolean,
     idUser: number
 }
+
+export default dataToSend;
