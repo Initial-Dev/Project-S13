@@ -33,14 +33,21 @@ const handler = nextConnect()
       gameList,
     });
   }).post(async (req: any, res: any) => {
+
+    const {
+      query: { nextPage, offset, limit, token },
+    } = req;
+
+    console.log('object :>> ', offset, limit, token);
+
     const listGame = await fetchData(`${process.env.IGDB_URL}/v4/games/`, {
       "method": "POST",
       "headers": {
         "client-id": process.env.CLIENT_ID,
-        "authorization": `Bearer ${process.env.TOKEN_GAME}`,
+        "authorization": `Bearer ${token}`,
         "cache-control": "no-cache"
       },
-      "body": `fields name,category,checksum,rating; offset ${process.env.OFFSET_LIST}; limit ${process.env.LIMIT_LIST};`
+      "body": `fields name,category,checksum,rating; offset ${offset}; limit ${limit};`
     })
 
     const newUser = await games.bulkCreate(listGame);
@@ -50,6 +57,6 @@ const handler = nextConnect()
       gameCreated: newUser,
 
     });
-  });
+  }); 
 
 export default handler;

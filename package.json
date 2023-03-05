@@ -6,7 +6,7 @@
     "start": "next start",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "migration": "sequelize db:migrate --config db/config/config.js -e .env.local",
+    "migration": "sequelize db:migrate --config db/config/config.js",
     "seed": "sequelize db:seed:all"
   },
   "dependencies": {

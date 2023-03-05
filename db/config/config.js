@@ -2,10 +2,10 @@
 
 module.exports = {
   development: {
-    username: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME,
-    host: process.env.DB_HOST,
+    username: "kameground",
+    password: "postgres",
+    database: "kameground",
+    host: "192.168.86.1",
     dialect: "postgres",
     dialectOptions: {
       ssl: false,
