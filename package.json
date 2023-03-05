@@ -10,8 +10,10 @@
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@types/fluent-ffmpeg": "^2.1.20",
+    "aws-sdk": "^2.1328.0",
     "express": "^4.18.2",
     "fluent-ffmpeg": "^2.1.2",
+    "fs-extra": "^11.1.0",
     "hls-server": "^1.5.0",
     "multer": "^1.4.5-lts.1",
     "next": "latest",
