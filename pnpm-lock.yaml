@@ -19,6 +19,7 @@ specifiers:
   autoprefixer: ^10.4.12
   babel-loader: ^8.3.0
   bcryptjs: ^2.4.3
+  dotenv: ^16.0.3
   express: ^4.18.2
   fluent-ffmpeg: ^2.1.2
   hls-server: ^1.5.0
@@ -40,6 +41,7 @@ dependencies:
   '@ffmpeg-installer/ffmpeg': 1.1.0
   '@types/fluent-ffmpeg': 2.1.21
   bcryptjs: 2.4.3
+  dotenv: 16.0.3
   express: 4.18.2
   fluent-ffmpeg: 2.1.2
   hls-server: 1.5.0
@@ -5758,6 +5760,11 @@ packages:
   /dotenv-expand/5.1.0:
     resolution: {integrity: sha512-YXQl1DSa4/PQyRfgrv6aoNjhasp/p4qs9FjJ4q4cQk+8m4r6k4ZSiEyytKG8f8W9gi8WsQtIObNmKd+tMzNTmA==}
     dev: true
+
+  /dotenv/16.0.3:
+    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+    engines: {node: '>=12'}
+    dev: false
 
   /dotenv/8.6.0:
     resolution: {integrity: sha512-IrPdXQsk2BbzvCBGBOTmmSH5SodmqZNt4ERAZDmW4CT+tL8VtvinqywuANaFu4bOMWki16nqf0e4oC0QIaDr/g==}

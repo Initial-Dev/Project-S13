@@ -6,13 +6,14 @@
     "start": "next start",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "migration": "sequelize db:migrate",
+    "migration": "sequelize db:migrate --config db/config/config.js -e .env.local",
     "seed": "sequelize db:seed:all"
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@types/fluent-ffmpeg": "^2.1.20",
     "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "fluent-ffmpeg": "^2.1.2",
     "hls-server": "^1.5.0",
