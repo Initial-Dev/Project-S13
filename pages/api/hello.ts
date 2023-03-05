@@ -9,7 +9,7 @@ export default function handler(
 ) {
   try {
     mp4ToHls('test.mp4')
-    res.status(200).json({etat: 'ok'});
+    res.status(200).json({ etat: 'ok' });
   } catch (e) {
     res.status(200).json({ erreur: e });
   }
