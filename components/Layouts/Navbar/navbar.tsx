@@ -72,7 +72,7 @@ const Navbar = () => {
 						{!session && (
 							<>
 								<button
-									className="gap-2 inline-flex items-center rounded-lg overflow-hidden bg-primary backdrop-blur px-3.5 py-1.5 text-sm font-medium text-white"
+									className="gap-2 inline-flex items-center rounded-lg overflow-hidden bg-discord backdrop-blur px-3.5 py-1.5 text-sm font-skmodernistregular text-white"
 									onClick={() => signIn('discord')}
 								>
 									<FaDiscord />

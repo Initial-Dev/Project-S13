@@ -13,6 +13,7 @@ module.exports = {
 				dark: '#1F2123',
 				light: '#F5F5F5',
 				primary: '#FE5821',
+				discord: '#5865F2',
 			},
 		},
 
