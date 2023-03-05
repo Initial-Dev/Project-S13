@@ -6,10 +6,10 @@ export default function handler(
 	req: NextApiRequest,
 	res: NextApiResponse<any>
 ) {
-	try {
-		mp4ToHls('test.mp4');
-		res.status(200).json({ etat: 'ok' });
-	} catch (e) {
-		res.status(200).json({ erreur: e });
-	}
+  try {
+    mp4ToHls('test.mp4')
+    res.status(200).json({etat: 'ok'});
+  } catch (e) {
+    res.status(200).json({ erreur: e });
+  }
 }
