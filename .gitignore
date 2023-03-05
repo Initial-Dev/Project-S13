@@ -137,3 +137,7 @@ dist
 
 /tmp
 /hls
+
+# pnpm
+
+pnpm-lock.yaml
