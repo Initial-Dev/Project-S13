@@ -56,6 +56,7 @@ const menuItems = [
 const Navbar = () => {
 	const [isMounted, setMounted] = useState(false);
 	useEffect(() => setMounted(true), []);
+	const router = useRouter();
 
 	const { theme, setTheme } = useTheme();
 	const onClickToggleDark = () =>
@@ -129,7 +130,10 @@ const Navbar = () => {
 					{session?.user && (
 						<>
 							<div className="hidden xl:inline-block lg:inline-block md:inline-block sm:inline-block">
-								<button className=" gap-2 inline-flex items-center rounded-lg overflow-hidden bg-primary backdrop-blur px-3.5 py-1.5 text-sm font-medium text-white  ">
+								<button
+									className="gap-2 inline-flex items-center rounded-lg overflow-hidden bg-primary backdrop-blur px-3.5 py-1.5 text-sm font-medium text-white"
+									onClick={() => router.push('/upload')}
+								>
 									<BiMovie />
 									Créer
 								</button>
