@@ -1,5 +1,6 @@
 import { MediaOutlet, MediaPlayer } from '@vidstack/react';
 import dynamic from 'next/dynamic';
+import Head from 'next/head';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import { RiCompassDiscoverLine } from 'react-icons/ri';
@@ -21,6 +22,15 @@ export default function Home() {
 
 	return (
 		<>
+			<Head>
+				<title>Kameground</title>
+				<meta name="description" content="kamegroud | Discover" />
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1"
+				/>
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
 			<Hero />
 			<div className="py-12 sm:py-24 font-skmodernistregular">
 				<div className="mx-auto max-w-7xl px-6 lg:px-8">

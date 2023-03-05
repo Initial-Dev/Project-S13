@@ -5,6 +5,7 @@ import {
 	useMotionValue,
 	useTransform,
 } from 'framer-motion';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useMemo, useState } from 'react';
 import VideoDesktop from '../../components/PlayerDesktop';
@@ -42,7 +43,6 @@ export const VideoPlayer = () => {
 		animate: any;
 		transition: any;
 		exitX?: any;
-
 	}
 
 	type Video = {
@@ -53,7 +53,7 @@ export const VideoPlayer = () => {
 		poster: any;
 		game: any;
 		avatar: any;
-	}
+	};
 
 	function Card(props: CardProps) {
 		const x = useMotionValue(0);
@@ -192,13 +192,17 @@ export const VideoPlayer = () => {
 		}
 
 		function handleNext() {
-			const currentIndex = videosList.findIndex((v) => v.id === (video ? video.id : null));
+			const currentIndex = videosList.findIndex(
+				(v) => v.id === (video ? video.id : null)
+			);
 			const nextIndex = (currentIndex + 1) % videosList.length;
 			setVideo(videosList[nextIndex]);
 		}
 
 		function handlePrevious() {
-			const currentIndex = videosList.findIndex((v) => v.id === (video ? video.id : null));
+			const currentIndex = videosList.findIndex(
+				(v) => v.id === (video ? video.id : null)
+			);
 			const previousIndex =
 				(currentIndex + videosList.length - 1) % videosList.length;
 			setVideo(videosList[previousIndex]);
@@ -232,7 +236,7 @@ export const VideoPlayer = () => {
 				>
 					<VideoDesktop
 						url={video ? video.url : ''}
-						logo={video ? video.game.logo: ''}
+						logo={video ? video.game.logo : ''}
 						gametitle={video ? video.game.title : ''}
 						avatar={video ? video.avatar : ''}
 						user={video ? video.user : ''}
@@ -271,6 +275,15 @@ export const VideoPlayer = () => {
 
 	return (
 		<>
+			<Head>
+				<title>{video ? video.title : ''}</title>
+				<meta name="description" content="kamegroud | Discover" />
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1"
+				/>
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
 			{video && (
 				<>
 					{isMobile ? (
