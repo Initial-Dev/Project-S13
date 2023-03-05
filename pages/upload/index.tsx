@@ -44,10 +44,10 @@ const upload: FunctionComponent = () => {
     }
 
     return (
-        <div className={"w-full h-full"}>
+        <div className={"w-full"}>
             {
                 isMobile ? (
-                    <UploadMobile data={dataToSend} />
+                    <UploadMobile data={dataToSend}  />
                 ) : (
                     <UploadDesktop data={dataToSend} />
                 )
