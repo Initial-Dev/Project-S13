@@ -1,10 +1,12 @@
 import {FunctionComponent} from "react";
+import {dataToSend} from "../../pages/upload";
 
 type Props = {
-    className?: string
+    className?: string,
 }
 
 const formUpload: FunctionComponent<Props> = ({className}) => {
+
     return (
         <div className={`flex flex-col w-full gap-2 ${className}`}>
             <div className={"flex flex-col gap-1"}>
