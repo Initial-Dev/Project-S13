@@ -1,4 +1,4 @@
-import {FunctionComponent, useState} from "react";
+import {FunctionComponent, useEffect, useState} from "react";
 import UploadMobile from "./uploadMobile";
 import UploadDesktop from "./uploadDesktop";
 
@@ -27,12 +27,20 @@ const upload: FunctionComponent = () => {
         idUser: 0
     })
 
+    const [video, setVideo] = useState<File | null>(null);
+
+    useEffect(() => {
+        console.log(dataToSend.video);
+    }, [dataToSend.video]);
+
     const sendVideo = async () => {
-        if (!dataToSend.video || !dataToSend.thumbnail || !dataToSend.title || !dataToSend.description || !dataToSend.visibility || !dataToSend.tags || !dataToSend.allowComments || !dataToSend.idUser) {
+        if (!video) {
             console.error("Missing data");
             return;
         }
-        /*const formData = new FormData();
+        const formData = new FormData();
+        formData.append("video", video ? video : "");
+        /*
         formData.append("video", dataToSend.video);
         formData.append("thumbnail", dataToSend.thumbnail);
         formData.append("title", dataToSend.title);
@@ -42,14 +50,24 @@ const upload: FunctionComponent = () => {
         formData.append("allowComments", dataToSend.allowComments ? "1" : "0");
         formData.append("idUser", dataToSend.idUser.toString());
 
-        const response = await fetch("http://localhost:3000/api/videos", {
+        const response = await fetch("http://localhost:3000/api/upload", {
             method: "POST",
             body: formData
         });
 
         const data = await response.json();
         console.log(data);*/
-        console.log("Video sent");
+        const response = await fetch("http://localhost:3000/api/upload", {
+            method: "POST",
+            body: formData
+        }).then((response) => {
+            if (response.ok) {
+                console.log("upload successful")
+            } else {
+                console.log("Error upload")
+            }
+        });
+
     }
 
     return (
@@ -58,7 +76,7 @@ const upload: FunctionComponent = () => {
                 isMobile ? (
                     <UploadMobile data={dataToSend}  />
                 ) : (
-                    <UploadDesktop data={dataToSend} />
+                    <UploadDesktop sendVideo={sendVideo} video={{video, setVideo}} data={dataToSend} />
                 )
             }
         </div>
