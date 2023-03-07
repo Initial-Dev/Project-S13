@@ -31,7 +31,7 @@ export const VideoPlayer = () => {
 				game,
 				avatar,
 			})),
-		[videos]
+		[videos] //useMemo pour garder eb cache les données
 	);
 
 	interface CardProps {
@@ -57,10 +57,10 @@ export const VideoPlayer = () => {
 
 	function Card(props: CardProps) {
 		const x = useMotionValue(0);
-		const scale = useTransform(x, [-150, 0, 150], [0.5, 1, 0.5]);
+		const scale = useTransform(x, [-150, 0, 150], [0.5, 1, 0.5]); //animation de zoom
 		const rotate = useTransform(x, [-150, 0, 150], [-45, 0, 45], {
 			clamp: false,
-		});
+		}); //animation de rotation
 
 		return (
 			<>
@@ -75,8 +75,8 @@ export const VideoPlayer = () => {
 						cursor: 'grab',
 					}}
 					whileTap={{ cursor: 'grabbing' }}
-					drag={props.drag}
-					dragConstraints={{ top: 0, right: 0, bottom: 0, left: 0 }}
+					drag={props.drag} //activation du drag
+					dragConstraints={{ top: 0, right: 0, bottom: 0, left: 0 }} //contraintes de drag
 					initial={props.initial}
 					animate={props.animate}
 					transition={props.transition}
@@ -84,7 +84,7 @@ export const VideoPlayer = () => {
 						x: props.exitX,
 						opacity: 0,
 						scale: 0.5,
-						transition: { duration: 0.2 },
+						transition: { duration: 0.2 }, //animation de sortie
 					}}
 				>
 					<img
@@ -97,7 +97,7 @@ export const VideoPlayer = () => {
 									videosList.length -
 									1) %
 									videosList.length
-							].poster
+							].poster //image de gauche
 						}
 						alt=""
 					/>
@@ -107,11 +107,11 @@ export const VideoPlayer = () => {
 	}
 
 	function CardR(props: CardProps) {
-		const x = useMotionValue(0);
-		const scale = useTransform(x, [-150, 0, 150], [0.5, 1, 0.5]);
+		const x = useMotionValue(0); //position de la carte
+		const scale = useTransform(x, [-150, 0, 150], [0.5, 1, 0.5]); //animation de zoom
 		const rotate = useTransform(x, [-150, 0, 150], [-45, 0, 45], {
 			clamp: false,
-		});
+		}); //animation de rotation
 
 		return (
 			<>
@@ -147,7 +147,7 @@ export const VideoPlayer = () => {
 								) +
 									1) %
 									videosList.length
-							].poster
+							].poster //image de droite
 						}
 						alt=""
 					/>
@@ -168,17 +168,18 @@ export const VideoPlayer = () => {
 		transition: any;
 		exitX: any;
 		videosList: any;
-	}
-
+	} //interface pour le composant CardNext
+	//Video Player Desktop situé au milieu de la page avec son animation de drag
 	function CardNext(props: CardNextProps) {
 		const x = useMotionValue(0);
 
-		const scale = useTransform(x, [-150, 0, 150], [0.5, 1, 0.5]);
+		const scale = useTransform(x, [-150, 0, 150], [0.5, 1, 0.5]); //animation de scale
 		const rotate = useTransform(x, [-150, 0, 150], [-45, 0, 45], {
 			clamp: false,
-		});
+		}); //animation de rotation
 
 		function handleDragEnd(event: MouseEvent, info: PanInfo) {
+			//fonction de grab vidéo
 			if (info.offset.x < -100) {
 				props.setExitX(-250);
 				props.setIndex(props.index + 1);
@@ -193,6 +194,7 @@ export const VideoPlayer = () => {
 
 		function handleNext() {
 			const currentIndex = videosList.findIndex(
+				//fonction vidéo suivante
 				(v) => v.id === (video ? video.id : null)
 			);
 			const nextIndex = (currentIndex + 1) % videosList.length;
@@ -200,6 +202,7 @@ export const VideoPlayer = () => {
 		}
 
 		function handlePrevious() {
+			//fonction vidéo précédente
 			const currentIndex = videosList.findIndex(
 				(v) => v.id === (video ? video.id : null)
 			);
@@ -250,21 +253,28 @@ export const VideoPlayer = () => {
 	}
 
 	useEffect(() => {
-		setIsMobile(/Mobi/.test(navigator.userAgent));
+		setIsMobile(/Mobi/.test(navigator.userAgent)); //Detecter si nous sommes sur mobile ou non, Change de VideoPlayer en fonction
 	}, []);
 
+	// useEffect pour mettre à jour la vidéo sélectionnée
 	useEffect(() => {
+		// On cherche dans la liste de vidéos l'élément qui a le même id que celui dans l'URL
 		const selectedVideo = videos.find(
 			(item) => item.id === router.query.id
 		);
+		// Si on a trouvé une vidéo correspondante, on la met à jour avec setVideo
 		if (selectedVideo) {
 			setVideo(selectedVideo);
 		}
 	}, [router.query, videos]);
 
+	// useEffect pour mettre à jour l'URL de la page si la vidéo change
 	useEffect(() => {
+		// Si on a une vidéo sélectionnée
 		if (video) {
+			// On récupère l'id de la vidéo dans l'URL actuelle
 			const { id: currentId } = router.query;
+			// Si l'id dans l'URL est différent de l'id de la vidéo sélectionnée, on met à jour l'URL
 			if (currentId !== video.id) {
 				router.push(`/watch/${video.id}`, undefined, {
 					shallow: true,

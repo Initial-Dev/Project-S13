@@ -7,7 +7,7 @@ import { RiCompassDiscoverLine } from 'react-icons/ri';
 import videos from '../videos.json';
 const Hero = dynamic(() => import('../components/Hero'), { ssr: false });
 export default function Home() {
-	const [hoveredVideo, setHoveredVideo] = useState<string | null>(null);
+	const [hoveredVideo, setHoveredVideo] = useState<string | null>(null); //fonction si la souris se place au deçu de la miniature d'une des vidéos
 	const videosList = useMemo(() => {
 		return videos.map(({ id, title, user, url, poster, game, avatar }) => ({
 			id,
@@ -18,7 +18,8 @@ export default function Home() {
 			game,
 			avatar,
 		}));
-	}, [videos]);
+	}, [videos]); //Recupere toutes les videos en bdd avec son id , titre, utilisateur, l'url, le poster, le jeu et l'avater de l'utilisateur
+	//UseMemo pour charger une fois et garcher en cache les éléments déjà chargé
 
 	return (
 		<>
