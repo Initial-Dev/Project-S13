@@ -56,7 +56,7 @@ const upload: FunctionComponent = () => {
 
         const data = await response.json();
         console.log(data);*/
-        const response = await fetch("http://localhost:3000/api/upload", {
+        const response = await fetch("https://kameground.com/api/upload", {
             method: "POST",
             body: formData
         }).then((response) => {
