@@ -2,20 +2,10 @@ import { useRef, useState } from 'react';
 import 'vidstack/styles/base.css';
 import 'vidstack/styles/ui/buttons.css';
 import 'vidstack/styles/ui/sliders.css';
+import PlayerUI from './PlayerUI';
 
-import {
-	MediaFullscreenButton,
-	MediaMuteButton,
-	MediaOutlet,
-	MediaPlayButton,
-	MediaPlayer,
-	MediaSliderVideo,
-	MediaTime,
-	MediaTimeSlider,
-	MediaVolumeSlider,
-} from '@vidstack/react';
-import AvatarUser from './avatarUser';
-import GameBadge from './gameBadge';
+import { MediaOutlet, MediaPlayer } from '@vidstack/react';
+import styles from '../../styles/PlayerDesktop.module.scss';
 
 interface playerDesktopProps {
 	url: string;
@@ -56,26 +46,10 @@ const playerDesktop = ({
 			setPlaying(true);
 		}
 	};
-	// Fonction pour le slider de la vidéo
-	function SliderThumb() {
-		return (
-			<div className="dragging:left-[var(--slider-pointer-percent)] absolute top-0 left-[var(--slider-fill-percent)] z-20 h-full w-[var(--thumb-size)] -translate-x-1/2 transform">
-				<div className="interactive:opacity-100 absolute top-1/2 left-0 h-[var(--thumb-size)] w-[var(--thumb-size)] -translate-y-1/2 transform rounded-full bg-[#FE5821] opacity-0 transition-opacity duration-150 ease-in"></div>
-			</div>
-		);
-	}
-	// Fonction pour le slider de la vidéo
-	function SliderTrackFill() {
-		return (
-			<div
-				className="absolute rounded-full top-1/2 left-0 z-20 h-[var(--track-height)] w-full -translate-y-1/2 scale-x-[var(--slider-fill-rate)] transform bg-[#FE5821] will-change-transform"
-				style={{ transformOrigin: 'left center' }}
-			/>
-		);
-	}
+
 	return (
 		<MediaPlayer
-			className="rounded-xl overflow-hidden"
+			className={'overflow-hidden rounded-lg'}
 			src={url}
 			preload="auto"
 			autoplay
@@ -90,50 +64,19 @@ const playerDesktop = ({
 				onMouseLeave={handleMouseLeave}
 			>
 				<MediaOutlet onClick={onVideoPress} />
+
 				<div
 					className={`media-ui ${
 						showMediaUi ? 'opacity-100' : 'opacity-0 '
 					} transition-opacity duration-300 font-skmodernistregular`}
 				>
-					<div className="absolute bottom-16 left-5 right-5 gap-3 flex justify-center items-center">
-						<div className="absolute left-0 text-white font-skmodernistbold px-2 py-1">
-							<MediaTime type="current" />
-						</div>
-						<MediaTimeSlider
-							className="mx-auto w-1/2 md:w-10/12 lg:w-10/12 xl:w-10/12"
-							style={{
-								'--thumb-size': '14px',
-								'--track-height': '4px',
-							}}
-						>
-							<MediaSliderVideo src={url} slot="preview" />
-							<SliderThumb />
-							<SliderTrackFill />
-						</MediaTimeSlider>
-						<div className="absolute right-0 text-white font-skmodernistbold px-2 py-1">
-							<MediaTime type="current" remainder />
-						</div>
-					</div>
-
-					<div className="flex flex-row justify-between items-center absolute bottom-5 left-5">
-						<div className="flex">
-							<MediaPlayButton />
-							<MediaMuteButton />
-							<div className="mx-auto w-20 md:w-40 lg:w-50 xl:w-60 ">
-								<MediaVolumeSlider />
-							</div>
-						</div>
-					</div>
-
-					<div className="absolute bottom-5 right-5">
-						<MediaFullscreenButton />
-					</div>
-					<div className="absolute top-5 right-5 ">
-						<GameBadge logo={logo} gametitle={gametitle} />
-					</div>
-					<div className="absolute top-5 left-5 ">
-						<AvatarUser avatar={avatar} user={user} />
-					</div>
+					<PlayerUI
+						url={url}
+						logo={logo}
+						gametitle={gametitle}
+						avatar={avatar}
+						user={user}
+					/>
 				</div>
 			</div>
 			{/* Bottom track color mousse leave */}
