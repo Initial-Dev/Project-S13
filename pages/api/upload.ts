@@ -3,8 +3,6 @@ import express, { Request, Response } from "express";
 import nc from "next-connect";
 import multer, { FileFilterCallback } from "multer";
 import mp4ToHls from "./toolbox/mp4ToHls";
-import { v4 } from "uuid";
-import getVidFromDB from "./request/video/getByUuid";
 
 export const config = {
   api: {
@@ -13,20 +11,6 @@ export const config = {
 };
 
 const sizeLimit = 300; // 300 Mo
-
-let uuid = v4();
-const _uuid = uuid.toString();
-
-// Vérifie que l'uuid n'existe pas déjà dans la base de données
-function verifyUUID(uuid: string) {
-  getVidFromDB(_uuid).then((count) => {
-    if (count > 0) {
-      uuid = v4();
-      verifyUUID(uuid);
-      console.log("UUID déjà existant, nouveau UUID généré");
-    }
-  });
-}
 
 // Configuration de Multer
 const upload = multer({
@@ -65,7 +49,7 @@ apiRoute.post(
       }
       // Le fichier est disponible dans req.file
       res.status(200).json({ message: "Upload Done!", file: req.file });
-      if (filename) mp4ToHls(filename.toString(), _uuid);
+      if (filename) mp4ToHls(filename.toString());
     });
   }
 );

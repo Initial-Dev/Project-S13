@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   videos.init(
     {
       name: DataTypes.STRING,
+      taille: DataTypes.STRING,
       s3name: DataTypes.STRING,
       s3url: DataTypes.STRING,
     },

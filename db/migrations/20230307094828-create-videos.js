@@ -12,7 +12,13 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
+      taille: {
+        type: Sequelize.STRING
+      },
       s3name: {
+        type: Sequelize.STRING
+      },
+      s3url: {
         type: Sequelize.STRING
       },
       createdAt: {

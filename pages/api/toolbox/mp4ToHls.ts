@@ -4,10 +4,25 @@ import sendToS3 from "./sendToS3";
 import rimraf from "rimraf";
 import { v4 } from "uuid";
 import sendVidToDB from "../request/video/saveInDb";
+import searchUuidInDb from "../request/video/getByUuid";
 
-export default async function mp4ToHls(filename: String, _uuid: any) {
+export default async function mp4ToHls(filename: String) {
   const ffmpeg = require("fluent-ffmpeg");
   const ffmpegInstaller = require("@ffmpeg-installer/ffmpeg");
+  
+  let _uuid = v4();
+  
+// Vérifie que l'uuid n'existe pas déjà dans la base de données
+function verifyUUID(uuid: string) {
+  searchUuidInDb(uuid).then((count) => {
+    if (count > 0) {
+      _uuid = v4();
+      verifyUUID(_uuid);
+      console.log("UUID déjà existant, nouveau UUID généré");
+    }
+  });
+}
+  verifyUUID(_uuid);
 
   ffmpeg.setFfmpegPath(ffmpegInstaller.path);
 
