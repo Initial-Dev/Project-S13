@@ -47,6 +47,7 @@ specifiers:
   next-auth: ^4.20.0
   next-connect: ^0.13.0
   next-themes: ^0.2.1
+  node-fetch: ^3.3.1
   pg: 8.6.0
   pg-hstore: ^2.3.3
   postcss: ^8.4.18
@@ -94,6 +95,7 @@ dependencies:
   next-auth: 4.20.1_ld2jel3hspngo3u5lti2kgl2sq
   next-connect: 0.13.0
   next-themes: 0.2.1_ld2jel3hspngo3u5lti2kgl2sq
+  node-fetch: 3.3.1
   pg: 8.6.0
   pg-hstore: 2.3.4
   react: 18.2.0
@@ -5853,6 +5855,11 @@ packages:
       assert-plus: 1.0.0
     dev: false
 
+  /data-uri-to-buffer/4.0.1:
+    resolution: {integrity: sha512-0R9ikRb668HB7QDxT1vkpuUBtqc53YyAwMwGeUFKRojY/NWKvdZ+9UYtRfGmhqNbRkTSVpMbmyhXipFFv2cb/A==}
+    engines: {node: '>= 12'}
+    dev: false
+
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
     peerDependencies:
@@ -6675,6 +6682,14 @@ packages:
       bser: 2.1.1
     dev: true
 
+  /fetch-blob/3.2.0:
+    resolution: {integrity: sha512-7yAQpD2UMJzLi1Dqv7qFYnPbaPx7ZfFK6PiIxQ4PfkGPyNyl2Ugx+a/umUonmKqjhM4DnfbMvdX6otXq83soQQ==}
+    engines: {node: ^12.20 || >= 14.13}
+    dependencies:
+      node-domexception: 1.0.0
+      web-streams-polyfill: 3.2.1
+    dev: false
+
   /fetch-retry/5.0.4:
     resolution: {integrity: sha512-LXcdgpdcVedccGg0AZqg+S8lX/FCdwXD92WNZ5k5qsb0irRhSFsBOpcJt7oevyqT2/C2nEE0zSFNdBEpj3YOSw==}
     dev: true
@@ -6979,6 +6994,13 @@ packages:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.35
+    dev: false
+
+  /formdata-polyfill/4.0.10:
+    resolution: {integrity: sha512-buewHzMvYL29jdeQTVILecSaZKnt/RJWjoZCF5OW60Z67/GmSLBkOFM7qh1PI3zFNtJbaZL5eQu1vLfazOwj4g==}
+    engines: {node: '>=12.20.0'}
+    dependencies:
+      fetch-blob: 3.2.0
     dev: false
 
   /forwarded/0.2.0:
@@ -9275,6 +9297,11 @@ packages:
       minimatch: 3.1.2
     dev: true
 
+  /node-domexception/1.0.0:
+    resolution: {integrity: sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==}
+    engines: {node: '>=10.5.0'}
+    dev: false
+
   /node-fetch/2.6.9:
     resolution: {integrity: sha512-DJm/CJkZkRjKKj4Zi4BsKVZh3ValV5IR5s7LVZnW+6YMh0W1BfNA8XSs6DLMGYlId5F3KnA70uu2qepcR08Qqg==}
     engines: {node: 4.x || >=6.0.0}
@@ -9286,6 +9313,15 @@ packages:
     dependencies:
       whatwg-url: 5.0.0
     dev: true
+
+  /node-fetch/3.3.1:
+    resolution: {integrity: sha512-cRVc/kyto/7E5shrWca1Wsea4y6tL9iYJE5FBCius3JQfb/4P4I295PfhgbJQBLTx6lATE4z+wK0rPM4VS2uow==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dependencies:
+      data-uri-to-buffer: 4.0.1
+      fetch-blob: 3.2.0
+      formdata-polyfill: 4.0.10
+    dev: false
 
   /node-int64/0.4.0:
     resolution: {integrity: sha512-O5lz91xSOeoXP6DulyHfllpq+Eg00MWitZIbtPfoSEvqIHdl5gfcY6hYzDWnj0qD5tz52PI08u9qUvSVeUBeHw==}
@@ -12652,6 +12688,11 @@ packages:
   /web-namespaces/1.1.4:
     resolution: {integrity: sha512-wYxSGajtmoP4WxfejAPIr4l0fVh+jeMXZb08wNc0tMg6xsfZXj3cECqIK0G7ZAqUq0PP8WlMDtaOGVBTAWztNw==}
     dev: true
+
+  /web-streams-polyfill/3.2.1:
+    resolution: {integrity: sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q==}
+    engines: {node: '>= 8'}
+    dev: false
 
   /webidl-conversions/3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}

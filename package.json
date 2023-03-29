@@ -36,6 +36,7 @@
     "next-auth": "^4.20.0",
     "next-connect": "^0.13.0",
     "next-themes": "^0.2.1",
+    "node-fetch": "^3.3.1",
     "pg": "8.6.0",
     "pg-hstore": "^2.3.3",
     "react": "18.2.0",
