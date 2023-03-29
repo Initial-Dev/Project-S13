@@ -4,7 +4,7 @@ import sendToS3 from "./sendToS3";
 import rimraf from "rimraf";
 import { v4 } from "uuid";
 import sendVidToDB from "../request/video/saveInDb";
-import searchUuidInDb from "../request/video/getByUuid";
+import searchUuidInDb from "../request/video/countByUuid";
 
 export default async function mp4ToHls(filename: String) {
   const ffmpeg = require("fluent-ffmpeg");
