@@ -37,7 +37,7 @@ const menuItems = [
 		id: 1,
 		icon: <HiUserCircle className="mr-2 h-5 w-5" aria-hidden="true" />,
 		label: 'Profil',
-		onClick: () => console.log('Profil clicked'),
+		onClick: () => console.log('/home'),
 	},
 	{
 		id: 2,

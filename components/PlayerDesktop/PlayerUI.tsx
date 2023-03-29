@@ -132,12 +132,6 @@ const MediaPlayerUI = ({
 							<MediaFullscreenButton />
 						</div>
 					</div>
-					<SettingsPanel
-						setIsOpen={setOpen}
-						isOpen={open}
-						sources={[]}
-						subtitles={[]}
-					/>
 				</div>
 			</div>
 		</div>
