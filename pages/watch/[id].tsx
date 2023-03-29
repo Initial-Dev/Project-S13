@@ -8,10 +8,13 @@ import {
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useMemo, useState } from 'react';
+import useSWR from 'swr';
 import VideoDesktop from '../../components/PlayerDesktop';
 import InfoKeyboard from '../../components/PlayerDesktop/infoKeyboard';
 import VideoMobile from '../../components/PlayerMobile';
 import videos from '../../videos.json';
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export const VideoPlayer = () => {
 	const router = useRouter();
@@ -20,19 +23,13 @@ export const VideoPlayer = () => {
 	const [index, setIndex] = useState(0);
 	const [exitX, setExitX] = useState('100%');
 
-	const videosList = useMemo(
-		() =>
-			videos.map(({ id, title, user, url, poster, game, avatar }) => ({
-				id,
-				title,
-				user,
-				url,
-				poster,
-				game,
-				avatar,
-			})),
-		[videos]
-	);
+	const { data: videos, error } = useSWR('/api/listAllVideos', fetcher);
+
+	if (error)
+		return (
+			<div>Une erreur est survenue lors du chargement des données.</div>
+		);
+	if (!videos) return <div>Chargement...</div>;
 
 	interface CardProps {
 		title?: string;
@@ -90,13 +87,13 @@ export const VideoPlayer = () => {
 					<img
 						className="rounded-xl"
 						src={
-							videosList[
-								(videosList.findIndex(
+							videos[
+								(videos.findIndex(
 									(v) => v.id === (video ? video.id : null)
 								) +
-									videosList.length -
+									videos.length -
 									1) %
-									videosList.length
+									videos.length
 							].poster
 						}
 						alt=""
@@ -141,12 +138,12 @@ export const VideoPlayer = () => {
 					<img
 						className="rounded-xl"
 						src={
-							videosList[
-								(videosList.findIndex(
+							videos[
+								(videos.findIndex(
 									(v) => v.id === (video ? video.id : null)
 								) +
 									1) %
-									videosList.length
+									videos.length
 							].poster
 						}
 						alt=""
@@ -192,20 +189,20 @@ export const VideoPlayer = () => {
 		}
 
 		function handleNext() {
-			const currentIndex = videosList.findIndex(
+			const currentIndex = videos.findIndex(
 				(v) => v.id === (video ? video.id : null)
 			);
-			const nextIndex = (currentIndex + 1) % videosList.length;
-			setVideo(videosList[nextIndex]);
+			const nextIndex = (currentIndex + 1) % videos.length;
+			setVideo(videos[nextIndex]);
 		}
 
 		function handlePrevious() {
-			const currentIndex = videosList.findIndex(
+			const currentIndex = videos.findIndex(
 				(v) => v.id === (video ? video.id : null)
 			);
 			const previousIndex =
-				(currentIndex + videosList.length - 1) % videosList.length;
-			setVideo(videosList[previousIndex]);
+				(currentIndex + videos.length - 1) % videos.length;
+			setVideo(videos[previousIndex]);
 		}
 
 		return (
@@ -254,6 +251,8 @@ export const VideoPlayer = () => {
 	}, []);
 
 	useEffect(() => {
+		if (!videos) return;
+
 		const selectedVideo = videos.find(
 			(item) => item.id === router.query.id
 		);

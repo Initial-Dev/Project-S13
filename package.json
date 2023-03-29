@@ -25,6 +25,7 @@
     "express": "^4.18.2",
     "fluent-ffmpeg": "^2.1.2",
     "framer-motion": "^10.0.1",
+    "fs": "0.0.1-security",
     "fs-extra": "^11.1.0",
     "hls-server": "^1.5.0",
     "hls.js": "^1.3.3",
@@ -44,8 +45,11 @@
     "rimraf": "^4.3.0",
     "sequelize": "^5.22.5",
     "storybook-addon-next": "^1.7.1",
+    "swr": "^2.1.1",
     "tailwindcss-filters": "^3.0.0",
+    "thumbbot": "^0.4.1",
     "uuid": "^9.0.0",
+    "video-thumbnail": "^1.2.0",
     "vidstack": "^0.3.2"
   },
   "devDependencies": {
