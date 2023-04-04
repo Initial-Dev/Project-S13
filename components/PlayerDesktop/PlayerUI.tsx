@@ -14,7 +14,6 @@ import 'vidstack/styles/base.css';
 import { useEffect, useState } from 'react';
 import AvatarTag from './AvatarTag';
 import GameTag from './GameTag';
-import { SettingsPanel } from './SettingsPanel';
 
 interface MediaPlayerUIProps {
 	url: string;

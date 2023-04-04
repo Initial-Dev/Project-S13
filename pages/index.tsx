@@ -1,12 +1,78 @@
-import { MediaOutlet, MediaPlayer } from '@vidstack/react';
+import { MediaOutlet, MediaPlayer, MediaPoster } from '@vidstack/react';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
+import { memo, useEffect, useMemo, useState } from 'react';
 import { RiCompassDiscoverLine } from 'react-icons/ri';
-import videos from '../videos.json';
+import useSWR from 'swr';
+
 const Hero = dynamic(() => import('../components/Hero'), { ssr: false });
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
+
+async function generateThumbnail(videoPath) {
+	const response = await fetch('/api/generate-thumbnail', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({ videoPath }),
+	});
+
+	if (response.ok) {
+		const data = await response.json();
+		return data.thumbnailPath;
+	} else {
+		console.error(
+			'Erreur lors de la génération de la miniature :',
+			await response.text()
+		);
+		return null;
+	}
+}
+
+const VideoItem = memo(
+	({ video, hoveredVideo, setHoveredVideo, thumbnail }) => (
+		<li
+			key={video.id}
+			onMouseEnter={() => setHoveredVideo(video.s3url)}
+			onMouseLeave={() => setHoveredVideo(null)}
+		>
+			{hoveredVideo === video.s3url ? (
+				<Link href={`/watch/${video.id}`}>
+					<MediaPlayer
+						className="rounded-2xl overflow-hidden"
+						muted
+						autoplay
+						src={`/api/proxy?url=${encodeURIComponent(
+							video.s3url
+						)}`}
+						poster={video.s3url}
+					>
+						<MediaOutlet />
+					</MediaPlayer>
+				</Link>
+			) : (
+				<>
+					<Link href={`/watch/${video.id}`}>
+						<div className="relative">
+							<img
+								className="rounded-2xl overflow-hidden"
+								src={thumbnail}
+							/>
+						</div>
+						<h3 className="mt-6 text-lg font-skmodernistbold leading-8 tracking-tight text-dark dark:text-light ">
+							{video.name}
+						</h3>
+					</Link>
+				</>
+			)}
+		</li>
+	)
+);
+
 export default function Home() {
+<<<<<<< HEAD
 	const [hoveredVideo, setHoveredVideo] = useState<string | null>(null); //fonction si la souris se place au deçu de la miniature d'une des vidéos
 	const videosList = useMemo(() => {
 		return videos.map(({ id, title, user, url, poster, game, avatar }) => ({
@@ -20,6 +86,42 @@ export default function Home() {
 		}));
 	}, [videos]); //Recupere toutes les videos en bdd avec son id , titre, utilisateur, l'url, le poster, le jeu et l'avater de l'utilisateur
 	//UseMemo pour charger une fois et garcher en cache les éléments déjà chargé
+=======
+	const [hoveredVideo, setHoveredVideo] = useState<string | null>(null);
+	const { data, error } = useSWR('/api/listAllVideos', fetcher);
+
+	const [thumbnails, setThumbnails] = useState({});
+
+	useEffect(() => {
+		if (data) {
+			(async () => {
+				const thumbnailsPromises = data.map(async (video) => {
+					const thumbnailPath = await generateThumbnail(video.s3url);
+					return { videoId: video.id, thumbnailPath };
+				});
+
+				const generatedThumbnails = await Promise.all(
+					thumbnailsPromises
+				);
+				const thumbnailsMap = generatedThumbnails.reduce(
+					(acc, { videoId, thumbnailPath }) => {
+						acc[videoId] = thumbnailPath;
+						return acc;
+					},
+					{}
+				);
+
+				setThumbnails(thumbnailsMap);
+			})();
+		}
+	}, [data]);
+
+	if (error)
+		return (
+			<div>Une erreur est survenue lors du chargement des données.</div>
+		);
+	if (!data) return <div>Chargement...</div>;
+>>>>>>> origin/feature/VidUpload
 
 	return (
 		<>
@@ -41,95 +143,19 @@ export default function Home() {
 							<h2>Discover</h2>
 						</div>
 					</div>
-
 					<ul
 						role="list"
 						className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4 "
 					>
-						{videosList.map(
-							({
-								id,
-								title,
-								user,
-								url,
-								poster,
-								game,
-								avatar,
-							}) => (
-								<li
-									className="Transition"
-									key={id}
-									onMouseEnter={() => setHoveredVideo(url)}
-									onMouseLeave={() => setHoveredVideo(null)}
-								>
-									{hoveredVideo === url ? (
-										<Link href={`/watch/${id}`}>
-											{/* <MediaPlayer
-											className="rounded-2xl overflow-hidden"
-											autoplay
-											muted
-											poster={poster}
-											src={url}
-										>
-											<MediaOutlet />
-										</MediaPlayer> */}
-											<video
-												className="rounded-2xl object-cover"
-												autoPlay
-												muted
-												poster={poster}
-												src={url}
-											/>
-
-											<h3 className="mt-6 text-lg font-skmodernistbold leading-8 tracking-tight text-dark dark:text-light">
-												{title}
-											</h3>
-											<div className="flex items-center gap-3">
-												<img
-													className="aspect-[3/2] h-5 w-5 rounded-full object-cover"
-													src={avatar}
-													alt=""
-												/>
-												<p className="text-base leading-7 font-skmodernistregular text-gray-600 dark:text-gray-400">
-													{user}
-												</p>
-											</div>
-										</Link>
-									) : (
-										<>
-											<Link href={`/watch/${id}`}>
-												<div className="relative">
-													<img
-														className="rounded-2xl object-cover"
-														src={poster}
-														alt=""
-													/>
-													<div className="absolute px-2 py-2 bottom-0 left-0">
-														<span className="inline-flex items-center rounded-lg overflow-hidden bg-primary/40 backdrop-blur px-3.5 py-1.5 text-sm font-medium text-white">
-															{game.title}
-														</span>
-													</div>
-												</div>
-
-												<h3 className="mt-6 text-lg font-skmodernistbold leading-8 tracking-tight text-dark dark:text-light ">
-													{title}
-												</h3>
-												<div className="flex items-center gap-3 ">
-													<img
-														className="aspect-[3/2] h-5 w-5 rounded-full object-cover"
-														src={avatar}
-														alt=""
-													/>
-													<p className="text-base leading-7 font-skmodernistregular  text-gray-600 dark:text-gray-400">
-														{user}
-													</p>
-												</div>
-											</Link>
-										</>
-									)}
-								</li>
-							)
-						)}
+						{data.map((video) => (
+							<VideoItem
+								key={video.id}
+								video={video}
+								hoveredVideo={hoveredVideo}
+								setHoveredVideo={setHoveredVideo}
+								thumbnail={thumbnails}
+							/>
+						))}
 					</ul>
 				</div>
 			</div>
