@@ -72,21 +72,6 @@ const VideoItem = memo(
 );
 
 export default function Home() {
-<<<<<<< HEAD
-	const [hoveredVideo, setHoveredVideo] = useState<string | null>(null); //fonction si la souris se place au deçu de la miniature d'une des vidéos
-	const videosList = useMemo(() => {
-		return videos.map(({ id, title, user, url, poster, game, avatar }) => ({
-			id,
-			title,
-			user,
-			url,
-			poster,
-			game,
-			avatar,
-		}));
-	}, [videos]); //Recupere toutes les videos en bdd avec son id , titre, utilisateur, l'url, le poster, le jeu et l'avater de l'utilisateur
-	//UseMemo pour charger une fois et garcher en cache les éléments déjà chargé
-=======
 	const [hoveredVideo, setHoveredVideo] = useState<string | null>(null);
 	const { data, error } = useSWR('/api/listAllVideos', fetcher);
 
@@ -121,7 +106,6 @@ export default function Home() {
 			<div>Une erreur est survenue lors du chargement des données.</div>
 		);
 	if (!data) return <div>Chargement...</div>;
->>>>>>> origin/feature/VidUpload
 
 	return (
 		<>

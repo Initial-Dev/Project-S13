@@ -7,12 +7,10 @@ import {
 } from 'framer-motion';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import useSWR from 'swr';
 import VideoDesktop from '../../components/PlayerDesktop';
-import InfoKeyboard from '../../components/PlayerDesktop/infoKeyboard';
 import VideoMobile from '../../components/PlayerMobile';
-import videos from '../../videos.json';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -23,21 +21,6 @@ export const VideoPlayer = () => {
 	const [index, setIndex] = useState(0);
 	const [exitX, setExitX] = useState('100%');
 
-<<<<<<< HEAD
-	const videosList = useMemo(
-		() =>
-			videos.map(({ id, title, user, url, poster, game, avatar }) => ({
-				id,
-				title,
-				user,
-				url,
-				poster,
-				game,
-				avatar,
-			})),
-		[videos] //useMemo pour garder eb cache les données
-	);
-=======
 	const { data: videos, error } = useSWR('/api/listAllVideos', fetcher);
 
 	if (error)
@@ -45,7 +28,6 @@ export const VideoPlayer = () => {
 			<div>Une erreur est survenue lors du chargement des données.</div>
 		);
 	if (!videos) return <div>Chargement...</div>;
->>>>>>> origin/feature/VidUpload
 
 	interface CardProps {
 		title?: string;
@@ -109,13 +91,8 @@ export const VideoPlayer = () => {
 								) +
 									videos.length -
 									1) %
-<<<<<<< HEAD
-									videosList.length
-							].poster //image de gauche
-=======
 									videos.length
 							].poster
->>>>>>> origin/feature/VidUpload
 						}
 						alt=""
 					/>
@@ -164,13 +141,8 @@ export const VideoPlayer = () => {
 									(v) => v.id === (video ? video.id : null)
 								) +
 									1) %
-<<<<<<< HEAD
-									videosList.length
-							].poster //image de droite
-=======
 									videos.length
 							].poster
->>>>>>> origin/feature/VidUpload
 						}
 						alt=""
 					/>
@@ -216,12 +188,7 @@ export const VideoPlayer = () => {
 		}
 
 		function handleNext() {
-<<<<<<< HEAD
-			const currentIndex = videosList.findIndex(
-				//fonction vidéo suivante
-=======
 			const currentIndex = videos.findIndex(
->>>>>>> origin/feature/VidUpload
 				(v) => v.id === (video ? video.id : null)
 			);
 			const nextIndex = (currentIndex + 1) % videos.length;
@@ -229,12 +196,7 @@ export const VideoPlayer = () => {
 		}
 
 		function handlePrevious() {
-<<<<<<< HEAD
-			//fonction vidéo précédente
-			const currentIndex = videosList.findIndex(
-=======
 			const currentIndex = videos.findIndex(
->>>>>>> origin/feature/VidUpload
 				(v) => v.id === (video ? video.id : null)
 			);
 			const previousIndex =
@@ -289,12 +251,8 @@ export const VideoPlayer = () => {
 
 	// useEffect pour mettre à jour la vidéo sélectionnée
 	useEffect(() => {
-<<<<<<< HEAD
-		// On cherche dans la liste de vidéos l'élément qui a le même id que celui dans l'URL
-=======
 		if (!videos) return;
 
->>>>>>> origin/feature/VidUpload
 		const selectedVideo = videos.find(
 			(item) => item.id === router.query.id
 		);
