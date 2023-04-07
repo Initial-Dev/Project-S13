@@ -9,8 +9,8 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import useSWR from 'swr';
-import VideoDesktop from '../../components/PlayerDesktop';
-import VideoMobile from '../../components/PlayerMobile';
+import VideoDesktop from '../../../components/PlayerDesktop';
+import VideoMobile from '../../../components/PlayerMobile';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 

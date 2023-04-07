@@ -1,5 +1,5 @@
 import {FunctionComponent} from "react";
-import {dataToSend} from "./index";
+import {dataToSend} from "../../app/upload/page";
 
 type Props = {
     data: dataToSend

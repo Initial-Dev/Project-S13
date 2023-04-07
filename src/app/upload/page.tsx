@@ -1,6 +1,6 @@
 import {FunctionComponent, useEffect, useState} from "react";
-import UploadMobile from "./uploadMobile";
-import UploadDesktop from "./uploadDesktop";
+import UploadMobile from "../../components/upload/uploadMobile";
+import UploadDesktop from "../../components/upload/uploadDesktop";
 
 export type dataToSend = {
 	video: File | null;

@@ -1,4 +1,4 @@
-import PlayerDesktop from '../components/PlayerDesktop';
+import PlayerDesktop from '../../components/PlayerDesktop';
 
 export default function Test() {
 	return (

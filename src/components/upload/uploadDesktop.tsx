@@ -1,12 +1,12 @@
 import {FunctionComponent} from "react";
-import {dataToSend} from "./index";
-import Title from "../../components/Title";
-import FormUpload from "../../components/FormUpload";
-import DragDrop from "../../components/DragDrop";
-import OptionsUpload from "../../components/OptionsUpload";
+import {dataToSend} from "../../app/upload/page";
+import Title from "../Title";
+import FormUpload from "../FormUpload";
+import DragDrop from "../DragDrop";
+import OptionsUpload from "../OptionsUpload";
 import {AiOutlineCloudUpload} from "react-icons/ai";
 import {BiImage} from "react-icons/bi";
-import CallToAction from "../../components/CallToAction";
+import CallToAction from "../CallToAction";
 
 type Props = {
     data: dataToSend,

@@ -29,4 +29,7 @@ module.exports = {
     // Will be available on both server and client
     staticFolder: "/public",
   },
+  experimental: {
+    appDir: true,
+  },
 };

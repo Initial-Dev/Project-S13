@@ -1,6 +1,6 @@
 import {FunctionComponent, ReactNode, useEffect} from "react";
 import {IconType} from "react-icons";
-import {dataToSend} from "../../pages/upload";
+import {dataToSend} from "../../app/upload/page";
 
 type Props = {
     className?: string,
