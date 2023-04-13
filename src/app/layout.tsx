@@ -3,7 +3,6 @@ import React, { StrictMode } from "react";
 
 export const metadata = {
   title: "Kameground V1",
-  description: "Play, Clip and Share !",
 };
 
 export default function RootLayout({
@@ -13,7 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <StrictMode>
-      <html lang="fr">
+      <html lang="en">
         <body>{children}</body>
       </html>
     </StrictMode>
