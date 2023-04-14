@@ -1,10 +1,32 @@
-import Hop from "@/app/hop";
-import "./file.scss";
+"use client";
+import { useEffect, useState } from "react";
+
 export default function Page() {
-  return (
-    <div>
-      <h1>My page</h1>
-      <Hop test={"test"} />
-    </div>
-  );
+  /**
+   * Responsive breakpoints
+   *
+   * - mobile: 0 - 768px
+   * - tablet: 768px - 1366px
+   * - desktop: 1366px - 1920px
+   */
+
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    const userAgent = navigator.userAgent;
+    setIsMobile(
+      Boolean(
+        userAgent.match(
+          /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+        )
+      )
+    );
+  }, []);
+
+  return <>{isMobile ? <div>Mobile</div> : <div>Desktop</div>}</>;
 }
+
+// get user agent
+// window.navigator.userAgent
+// const userAgent = navigator.userAgent;
+// const isMobile = Boolean(userAgent.match(/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i));
