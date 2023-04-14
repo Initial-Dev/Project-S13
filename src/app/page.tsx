@@ -1,5 +1,5 @@
 import Hop from "@/app/hop";
-
+import "./file.scss";
 export default function Page() {
   return (
     <div>

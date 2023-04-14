@@ -11,6 +11,7 @@
         "project": "./tsconfig.json"
     },
     "rules": {
+        "@typescript-eslint/no-explicit-any": "error",
         "no-console": 1,
         "import/extensions": [
             "error",
